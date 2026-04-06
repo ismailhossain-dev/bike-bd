@@ -23,10 +23,7 @@ export const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <Link
-              href="/allbikes"
-              className="px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-2xl font-bold hover:scale-105 active:scale-95 transition-all shadow-xl shadow-blue-500/10 dark:shadow-none text-center"
-            >
+            <Link href="/allbikes" className="btn flex justify-center items-center ">
               Shop Now
             </Link>
 
