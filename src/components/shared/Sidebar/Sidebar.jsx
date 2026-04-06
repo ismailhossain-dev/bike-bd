@@ -7,8 +7,9 @@ import { IoIosNotifications } from "react-icons/io";
 
 const menuItems = [
   { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-  { name: "Orders", path: "/dashboard/orders", icon: ShoppingBag },
-  { name: "Notifications", path: "/dashboard/notifications", icon: IoIosNotifications },
+  { name: "Manage Bikes", path: "/dashboard/manage-bikes", icon: ShoppingBag },
+  { name: "Add Bike", path: "/dashboard/add-bike", icon: IoIosNotifications },
+  { name: "Profile", path: "/dashboard/profile", icon: IoIosNotifications },
   { name: "Settings", path: "/dashboard/settings", icon: Settings },
 ];
 
@@ -42,7 +43,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               <Gamepad2 size={22} />
             </div>
             <span className="text-xl font-black text-white tracking-tighter italic">
-              EXPERT<span className="text-blue-500">.</span>
+              Bike<span className="text-blue-500">.</span>
             </span>
           </Link>
           <button

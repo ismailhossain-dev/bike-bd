@@ -25,9 +25,9 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Shop", path: "/allbikes" },
     { name: "About", path: "/about" },
-    { name: "Featured", path: "/feature" },
-    { name: "Add Bike", path: "/add-bike" },
-    { name: "Manage Bike", path: "/manage-bike" },
+    // { name: "Featured", path: "/feature" },
+    // { name: "Add Bike", path: "/add-bike" },
+    // { name: "Manage Bike", path: "/manage-bike" },
     { name: "Contact Us", path: "/contact" },
     { name: "Dashboard", path: "/dashboard" },
   ];
