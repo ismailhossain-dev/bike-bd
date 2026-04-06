@@ -2,8 +2,8 @@ import DashboardWrapper from "@/components/shared/DashboardWrapper/DashboardWrap
 import React from "react";
 
 export const metadata = {
-  title: "Admin Dashboard | Expert Gaming Shop",
-  description: "Manage your game top-ups and orders by admin",
+  title: "User Dashboard | Bike Shop",
+  description: "  orders by user",
 };
 
 const DashboardLayout = ({ children }) => {

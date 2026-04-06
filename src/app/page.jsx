@@ -2,6 +2,7 @@ import { BestSellerSection } from "@/components/BestSellerSection";
 import BikeCard from "@/components/Cards/BikeCard";
 import { CategoriesSection } from "@/components/CategoriesSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
+import Footer from "@/components/Footer/Footer";
 import { HeroSection } from "@/components/HeroSection";
 import Navbar from "@/components/Navbar/Navbar";
 import { dbConnect } from "@/lib/dbConnect";
@@ -71,6 +72,7 @@ const page = async () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
