@@ -7,7 +7,13 @@ const ManageBikes = async () => {
   let bikes = [];
 
   try {
-    bikes = await dbConnect("bikeData").find().toArray();
+    const data = await dbConnect("bikeData").find().toArray();
+
+    // Convert ObjectId to string
+    bikes = data.map((bike) => ({
+      ...bike,
+      _id: bike._id.toString(),
+    }));
   } catch (error) {
     console.error("Failed to load bikes for /manage-bike page:", error);
   }
@@ -24,6 +30,7 @@ const ManageBikes = async () => {
             Total {bikes?.length || 0} bikes listed in your shop.
           </p>
         </div>
+
         <Link
           href="add-bike"
           className="w-full md:w-auto text-center px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl transition-all"
@@ -32,10 +39,9 @@ const ManageBikes = async () => {
         </Link>
       </div>
 
-      {/* Responsive Table Container */}
+      {/* Table */}
       <div className="bg-white dark:bg-[#111111] rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
         <div className="overflow-x-auto">
-          {/* min-w-800 ensure kore jate mobile-e columns gulo gajagaji na hoy */}
           <table className="table w-full border-collapse min-w-[800px]">
             <thead className="bg-gray-50 dark:bg-[#1a1a1a]">
               <tr className="border-b border-gray-100 dark:border-gray-800 text-gray-600 dark:text-gray-400 uppercase text-[11px] tracking-widest font-bold">
@@ -46,8 +52,9 @@ const ManageBikes = async () => {
                 <th className="text-right pr-10">Actions</th>
               </tr>
             </thead>
+
             <tbody className="divide-y divide-gray-50 dark:divide-gray-800">
-              {bikes && bikes.length > 0 ? (
+              {bikes.length > 0 ? (
                 bikes.map((bike, index) => (
                   <ManageBikesTable key={bike._id} bike={bike} index={index} />
                 ))

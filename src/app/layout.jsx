@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
+// import Navbar from "@/components/Navbar/Navbar";
+// import Footer from "@/components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import NextAuthProvider from "@/Provider/NextAuthProvider";
 import Container from "@/components/Container";
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${roboto.className} $ antialiased`}>
         <NextAuthProvider>
-          <Navbar />
+          {/* <Navbar /> */}
 
           <div className="min-h-[calc(100vh-472px)]">
             <Container>
@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
             <ToastContainer position="top-right" />
           </div>
 
-          <Footer />
+          {/* <Footer /> */}
         </NextAuthProvider>
       </body>
     </html>

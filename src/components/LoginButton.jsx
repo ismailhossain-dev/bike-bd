@@ -7,7 +7,7 @@ const LoginButton = () => {
   // ebong success hole callbackUrl (home page) e redirect korbe
   return (
     <button
-      className="btn rounded-full px-4 md:px-6"
+      className="bg-orange-600 px-5 py-2 rounded-full text-sm font-bold hover:bg-orange-700 transition shadow-md rounded-full px-4 md:px-6"
       onClick={() => signIn(undefined, { callbackUrl: "/" })}
     >
       Login
