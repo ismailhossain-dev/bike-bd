@@ -3,6 +3,7 @@ import BikeCard from "@/components/Cards/BikeCard";
 import { CategoriesSection } from "@/components/CategoriesSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { HeroSection } from "@/components/HeroSection";
+import Navbar from "@/components/Navbar/Navbar";
 import { dbConnect } from "@/lib/dbConnect";
 import React from "react";
 
@@ -23,6 +24,7 @@ const page = async () => {
 
   return (
     <div>
+      <Navbar />
       {/* Hero section */}
       <HeroSection />
       <FeaturesSection />
