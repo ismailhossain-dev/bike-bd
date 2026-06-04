@@ -1,4 +1,4 @@
-import DashboardWrapper from "@/components/shared/DashboardWrapper/DashboardWrapper";
+import DashboardWrapper from "@/components/UserDashboard/DashboardWrapper/DashboardWrapper";
 import React from "react";
 
 export const metadata = {

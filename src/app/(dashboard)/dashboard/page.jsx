@@ -11,104 +11,49 @@ import {
   Gauge,
   Wrench,
 } from "lucide-react";
+import OrdersChart from "@/components/UserDashboard/Chart/OrdersChart";
 
 const DashboardPage = () => {
-  // Bike Management Categories
-  const bikeServices = [
+  // 1. Premium User Activity & Service Stats
+  const statsData = [
     {
-      id: 1,
-      name: "Sport Bikes",
-      count: "12 Models",
-      icon: <Zap size={24} />,
-      color: "from-orange-500 to-red-600",
+      label: "Orders)",
+      value: "2 Bikes",
+      icon: <TrendingUp className="w-5 h-5 text-emerald-400" />,
+      border: "border-emerald-500/30 hover:border-emerald-500/80",
     },
     {
-      id: 2,
-      name: "Cruiser Series",
-      count: "08 Models",
-      icon: <Bike size={24} />,
-      color: "from-blue-500 to-indigo-600",
+      label: "WishList",
+      value: "03 Bikes",
+      icon: <Bike className="w-5 h-5 text-sky-400" />,
+      border: "border-sky-500/30 hover:border-sky-500/80",
     },
     {
-      id: 3,
-      name: "Inventory Management",
-      count: "45 Units",
-      icon: <ShieldCheck size={24} />,
-      color: "from-emerald-500 to-teal-600",
+      label: "Cart",
+      value: "2 Bikes",
+      icon: <Zap className="w-5 h-5 text-indigo-400" />,
+      border: "border-indigo-500/30 hover:border-indigo-500/80",
     },
-    {
-      id: 4,
-      name: "Maintenance Logs",
-      count: "12 Pending",
-      icon: <Wrench size={24} />,
-      color: "from-pink-500 to-rose-600",
-    },
-    {
-      id: 5,
-      name: "Performance Tuning",
-      count: "Active",
-      icon: <Gauge size={24} />,
-      color: "from-violet-500 to-purple-600",
-    },
-    {
-      id: 6,
-      name: "Customer Reviews",
-      count: "4.8 Rating",
-      icon: <TrendingUp size={24} />,
-      color: "from-cyan-500 to-blue-600",
-    },
+    
   ];
 
-  return (
-    <main className="min-h-screen text-slate-200">
-      <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="mb-10">
-          <h1 className="text-3xl font-black tracking-tight text-white italic">
-            GARAGE{" "}
-            <span className="text-blue-500 italic not-italic text-sm font-bold tracking-widest ml-2 uppercase opacity-70">
-              Control Center
-            </span>
-          </h1>
-          <p className="text-slate-500 text-sm mt-1">
-            Welcome back, Chief. Here's what's happening with your fleet today.
-          </p>
-        </div>
+  
 
-        {/* --- Top Summary Stats --- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {[
-            {
-              label: "Total Inventory",
-              value: "142",
-              icon: <Bike className="text-blue-500" />,
-              border: "border-blue-500/50",
-            },
-            {
-              label: "Revenue (MTD)",
-              value: "৳ 8,45,200",
-              icon: <TrendingUp className="text-emerald-500" />,
-              border: "border-emerald-500/50",
-            },
-            {
-              label: "Ready for Sale",
-              value: "89",
-              icon: <CheckCircle2 className="text-cyan-500" />,
-              border: "border-cyan-500/50",
-            },
-            {
-              label: "Service Pending",
-              value: "14",
-              icon: <Clock className="text-orange-500" />,
-              border: "border-orange-500/50",
-            },
-          ].map((stat, idx) => (
+  return (
+    <main className="min-h-screen text-slate-200 bg-[#050505] py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        
+      
+
+        {/* --- Top Summary Stats Grid --- */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {statsData.map((stat, index) => (
             <div
-              key={idx}
-              className={`bg-[#0f0f0f] border-b-2 ${stat.border} p-6 rounded-2xl transition-all duration-300 hover:bg-[#151515] hover:-translate-y-1 shadow-xl shadow-black/20`}
+              key={index}
+              className={`bg-[#0f0f0f] border-b-2 ${stat.border} p-6 rounded-2xl transition-all duration-300 hover:bg-[#151515] hover:-translate-y-1 shadow-xl shadow-black/40`}
             >
               <div className="flex justify-between items-start mb-4">
-                <p className="text-[10px] text-slate-500 uppercase font-black tracking-widest">
+                <p className="text-[11px] text-slate-400 uppercase font-bold tracking-widest">
                   {stat.label}
                 </p>
                 <div className="p-2 bg-white/5 rounded-lg">{stat.icon}</div>
@@ -118,68 +63,53 @@ const DashboardPage = () => {
           ))}
         </div>
 
-        {/* --- Bike Categories Grid --- */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400">
-            Fleet Categories
-          </h2>
-          <button className="text-xs font-bold text-blue-500 hover:underline">
-            View All Details
-          </button>
+        {/* User Orders / Riding Analytics Chart Section */}
+        <div className="mb-12 bg-[#0f0f0f] p-6 rounded-[2rem] border border-white/5 shadow-2xl shadow-black/50">
+          <div className="mb-6">
+            <h3 className="text-lg font-bold text-white tracking-tight">Your Order & Maintenance Trends</h3>
+            <p className="text-xs text-slate-500">Track your past retail orders and maintenance schedules over the last few weeks.</p>
+          </div>
+          <OrdersChart />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-          {bikeServices.map((item) => (
-            <div
-              key={item.id}
-              className="group relative bg-[#0f0f0f] p-1 rounded-[2rem] overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_rgba(37,99,235,0.1)] border border-white/5"
-            >
-              <div className="bg-[#0a0a0a] p-6 rounded-[1.9rem] flex items-center justify-between h-full border border-white/5">
-                <div className="flex items-center space-x-5">
-                  <div
-                    className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white shadow-lg transition-transform duration-500 group-hover:rotate-12`}
-                  >
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-white text-lg leading-tight">{item.name}</h3>
-                    <p className="text-xs text-slate-500 mt-1">{item.count}</p>
-                  </div>
-                </div>
-                <div className="text-slate-700 group-hover:text-white transition-colors duration-300">
-                  <ChevronRight size={20} />
-                </div>
-              </div>
+        {/* --- My Garage Section --- */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400">
+              My Fleet Status
+            </h2>
+            <button className="text-xs font-bold text-blue-500 hover:text-blue-400 flex items-center gap-1 transition-all">
+              Manage Garage <ChevronRight className="w-3 h-3" />
+            </button>
+          </div>
 
-              {/* Subtle hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-            </div>
-          ))}
+    
         </div>
 
-        {/* --- Activity Section Placeholder --- */}
-        <div className="bg-[#0f0f0f] border border-white/5 rounded-[2rem] p-8">
+        {/* --- Recent Activity Section --- */}
+        <div className="bg-[#0f0f0f] border border-white/5 rounded-[2rem] p-8 shadow-2xl shadow-black/50 mb-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
-              <h3 className="text-xl font-bold text-white tracking-tight">Recent Stock Activity</h3>
+              <h3 className="text-xl font-bold text-white tracking-tight">Live Service Status & Tracking</h3>
               <p className="text-xs text-slate-500">
-                Live monitoring of your bike inventory movements.
+                Track your active bike repairs or parts installations from our technicians live.
               </p>
             </div>
             <div className="flex gap-2">
-              <span className="px-3 py-1 bg-blue-600/10 text-blue-500 text-[10px] font-bold rounded-full border border-blue-500/20">
-                LIVE UPDATE
+              <span className="px-3 py-1 bg-blue-600/10 text-blue-400 text-[10px] font-bold rounded-full border border-blue-500/20 animate-pulse">
+                SYNCED WITH MECHANIC
               </span>
             </div>
           </div>
 
-          {/* Chart Placeholder Box */}
+          {/* Chart/Timeline Placeholder Box */}
           <div className="h-64 w-full bg-gradient-to-b from-white/[0.02] to-transparent rounded-2xl border border-dashed border-white/10 flex items-center justify-center">
-            <p className="text-slate-600 font-mono text-xs italic tracking-widest uppercase">
-              Inventory Analytics Chart Area
+            <p className="text-slate-500 font-mono text-xs italic tracking-widest uppercase">
+              Service Milestones & Progress Timeline Area
             </p>
           </div>
         </div>
+
       </div>
     </main>
   );

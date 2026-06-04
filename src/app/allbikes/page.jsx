@@ -1,4 +1,5 @@
-import AllBikeCard from "@/components/Cards/AllBikeCard";
+
+import BikeCard from "@/components/Cards/BikeCard";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
 import { dbConnect } from "@/lib/dbConnect";
@@ -51,7 +52,7 @@ const page = async () => {
         {allbikes.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {allbikes.map((bike) => (
-              <AllBikeCard key={bike._id} bike={bike} />
+              <BikeCard key={bike._id} bike={bike} />
             ))}
           </div>
         ) : (

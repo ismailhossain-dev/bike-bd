@@ -3,11 +3,12 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import LoginButton from "../LoginButton";
+
 import { useSession, signOut } from "next-auth/react";
 
 const Navbar = () => {
   const { data: session } = useSession();
+  // console.log ("user info", session)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathName = usePathname();
@@ -70,12 +71,12 @@ const Navbar = () => {
             <div className="hidden sm:flex items-center gap-3">
               {!session?.user ? (
                 <>
-                  <LoginButton />
+                 
                   <Link
                     href="/register"
                     className="bg-orange-600 px-5 py-2 rounded-full text-sm font-bold hover:bg-orange-700 transition shadow-md"
                   >
-                    Register
+                  Create Account
                   </Link>
                 </>
               ) : null}
@@ -212,7 +213,7 @@ const Navbar = () => {
           {!session?.user && (
             <div className="mt-auto pt-6 border-t border-gray-800 space-y-3">
               <div className="flex flex-col gap-3">
-                <LoginButton />
+            
                 <Link
                   href="/register"
                   onClick={() => setIsMobileMenuOpen(false)}
