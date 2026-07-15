@@ -4,7 +4,7 @@ import "./globals.css";
 // import Footer from "@/components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import NextAuthProvider from "@/Provider/NextAuthProvider";
-import Container from "@/components/Container";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,21 +30,26 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+      <NextAuthProvider>
     <html lang="en">
       <body className={`${roboto.className} $ antialiased`}>
-        <NextAuthProvider>
+      
           {/* <Navbar /> */}
 
-          <div className="min-h-[calc(100vh-472px)]">
-            <Container>
-              <main>{children}</main>
-            </Container>
+          <div className="min-h-[calc(100vh-472px)] bg-[#ffffff]">
+              
+       
+              <div>
+                <main>{children}</main>
+              </div>
+            
             <ToastContainer position="top-right" />
           </div>
 
           {/* <Footer /> */}
-        </NextAuthProvider>
+
       </body>
     </html>
+            </NextAuthProvider>
   );
 }

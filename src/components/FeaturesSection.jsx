@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 
 export const FeaturesSection = () => {
+  // ফিচার ডাটা লিস্ট (খুবই সহজ উপায়ে সাজানো)
   const features = [
     { title: "GPS Tracking", desc: "Real time bike tracking system", icon: "📍" },
     { title: "Super Charging", desc: "Fast and reliable charging", icon: "⚡" },
@@ -9,28 +11,46 @@ export const FeaturesSection = () => {
   ];
 
   return (
-    <section className="bg-slate-50 dark:bg-zinc-950 py-20 px-6 md:px-20 text-center transition-colors duration-300">
+    /* মূল সেকশন কন্টেইনার (সম্পূর্ণ লাইট/হোয়াইট ব্যাকগ্রাউন্ড) */
+    <section className="bg-gray-50/50 py-24 px-6 md:px-20 text-center transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
-        <p className="text-indigo-600 dark:text-indigo-400 font-semibold tracking-widest uppercase text-sm mb-3">
+        
+        {/* ছোট সাব-হেডিং */}
+        <p className="text-orange-600 font-extrabold tracking-[0.2em] uppercase text-xs mb-3">
           Why Choose Us
         </p>
-        <h2 className="text-3xl md:text-5xl font-extrabold leading-tight mb-12 text-zinc-900 dark:text-white">
-          OUR FEATURES & <span className="text-indigo-600 dark:text-indigo-500">FACILITIES</span>
+        
+        {/* মেইন হেডিং */}
+        <h2 className="text-3xl md:text-5xl font-black leading-tight mb-4 text-gray-900 tracking-tight">
+          OUR FEATURES & <span className="text-orange-600">FACILITIES</span>
         </h2>
+        
+        {/* হেডিংয়ের নিচের সুন্দর ছোট ডিভাইডার */}
+        <div className="w-16 h-[3px] bg-orange-600 mx-auto mb-16 rounded-full" />
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+        {/* ফিচার কার্ড গ্রিড লেআউট */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((item, index) => (
             <div
               key={index}
-              className="group bg-white dark:bg-zinc-900/50 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-300 transform hover:-translate-y-2"
+              /* হোয়াইট কার্ড ডিজাইন (সফট শ্যাডো ও হোভার ট্রানজিশন সহ) */
+              className="group bg-white p-8 rounded-[2rem] border border-gray-100 hover:border-orange-200 shadow-[0_15px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(234,88,12,0.08)] transition-all duration-500 transform hover:-translate-y-2"
             >
-              <div className="w-14 h-14 mx-auto mb-6 bg-indigo-50 dark:bg-indigo-900/30 text-2xl rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                {item.icon}
+              {/* আইকন কন্টেইনার (হোভার করলে কালার চেইঞ্জ হবে) */}
+              <div className="w-16 h-16 mx-auto mb-6 bg-orange-50 text-3xl rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:bg-orange-600 group-hover:scale-110 group-hover:rotate-6">
+                {/* হোভার করলে ইমোজি জুম করার ইফেক্ট */}
+                <span className="transition-transform duration-300 group-hover:scale-110">
+                  {item.icon}
+                </span>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-zinc-900 dark:text-zinc-100">
+              
+              {/* ফিচার টাইটেল */}
+              <h3 className="font-extrabold text-xl mb-3 text-gray-800 tracking-tight group-hover:text-orange-600 transition-colors duration-300">
                 {item.title}
               </h3>
-              <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
+              
+              {/* ফিচার ডেসক্রিপশন */}
+              <p className="text-gray-500 text-sm leading-relaxed">
                 {item.desc}
               </p>
             </div>

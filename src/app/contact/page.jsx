@@ -3,7 +3,7 @@ import React from "react";
 import { ContactUser } from "../api/contact/route";
 import { toast } from "react-toastify";
 import Footer from "@/components/Footer/Footer";
-import Navbar from "@/components/Navbar/Navbar";
+// import Navbar from "@/components/Navbar/Navbar";
 
 const ContactPage = () => {
   const handleContact = async (e) => {
@@ -34,7 +34,7 @@ const ContactPage = () => {
   return (
     /* --- Main Background: Pure White in Light, Deep Charcoal in Dark --- */
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="bg-white dark:bg-[#050505] min-h-screen text-zinc-900 dark:text-white py-24 px-6 transition-colors duration-300">
         <div className="container mx-auto max-w-6xl">
           {/* --- Header Section --- */}

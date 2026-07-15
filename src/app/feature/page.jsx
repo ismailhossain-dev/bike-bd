@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import React from "react";
 import { Trophy, Zap, Shield, Globe, ArrowUpRight } from "lucide-react"; // Icons
-import Navbar from "@/components/Navbar/Navbar";
+// import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 
 const featuredBikes = [
@@ -37,7 +37,7 @@ const featuredBikes = [
 export default function FeaturedSection() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="bg-zinc-50 dark:bg-[#020202]">
         {/* --- Section 1: Hero Header & Stats --- */}
         <section className="pt-24 pb-12 overflow-hidden relative">

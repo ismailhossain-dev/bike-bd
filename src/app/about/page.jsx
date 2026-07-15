@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer/Footer";
-import Navbar from "@/components/Navbar/Navbar";
+// import Navbar from "@/components/Navbar/Navbar";
 import React from "react";
 
 const AboutPage = () => {
@@ -30,7 +30,7 @@ const AboutPage = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="bg-white dark:bg-[#050505] text-zinc-900 dark:text-white min-h-screen font-sans transition-colors duration-300">
         {/* --- Section 1: Hero --- */}
         <section className="relative pt-32 pb-16 px-6 overflow-hidden">

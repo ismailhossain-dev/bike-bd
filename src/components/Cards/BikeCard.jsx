@@ -1,88 +1,146 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+// প্রয়োজনীয় আইকনগুলো ইম্পোর্ট করা হয়েছে
+import { Heart, ShoppingCart, ArrowLeftRight, Search } from "lucide-react";
 
 const BikeCard = ({ bike }) => {
+  // যদি কোনো ডাটা না থাকে, তাহলে কিছুই দেখাবে না
   if (!bike) return null;
 
-  const { brand, name, category, price, rating, image, weight, torque, color } = bike;
+  // সহজ ডিস্ট্রাকচারিং (প্রয়োজনীয় ডাটাগুলো আলাদা করা)
+  const { _id, name, price, rating, image, category } = bike;
+
+  // উইশলিস্ট এবং কম্পেয়ার বাটন অ্যাক্টিভ করার জন্য দুটি স্টেট (State)
+  const [isWishlisted, setIsWishlisted] = useState(false);
+  const [isCompared, setIsCompared] = useState(false);
+
+  // উইশলিস্ট হ্যান্ডলার ফাংশন
+  const handleWishlistToggle = (e) => {
+    e.preventDefault(); // লিংক ক্লিক হওয়া থেকে আটকাবে
+    setIsWishlisted(!isWishlisted);
+  };
+
+  // কম্পেয়ার হ্যান্ডলার ফাংশন
+  const handleCompareToggle = (e) => {
+    e.preventDefault();
+    setIsCompared(!isCompared);
+  };
+
+  // কার্ট হ্যান্ডলার ফাংশন
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    console.log(`${name} কার্টে যোগ করা হয়েছে!`);
+  };
 
   return (
-    <div className="group relative flex flex-col rounded-[2.5rem] bg-[#141414] border border-zinc-800/50 p-3 shadow-2xl transition-all duration-500 hover:border-zinc-700 hover:shadow-cyan-500/10 h-full">
+    /* মূল কার্ড কন্টেইনার (সম্পূর্ণ হোয়াইট থিম, বর্ডার ও লাইট শ্যাডো সহ) */
+    <div className="group relative flex flex-col bg-white border border-gray-100 rounded-3xl p-4 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:border-orange-200 h-full">
       
-      {/* Image Container with Dark Theme Adjustments */}
-      <div className="relative aspect-[4/4] overflow-hidden rounded-[2rem] bg-zinc-900 shadow-inner">
+      {/* ১. ইমেজ কন্টেইনার (হোভার করলে জুম হবে) */}
+      <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gray-50 border border-gray-50">
         <Image
-          width={400} // Bumped up resolution for sharper rendering
+          width={400}
           height={400}
           src={image}
           alt={name}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
 
-        {/* Top Badges */}
-        <div className="absolute inset-x-4 top-4 flex justify-between items-start">
-          <span className="rounded-2xl bg-zinc-900/80 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-zinc-200 border border-zinc-800 backdrop-blur-md">
-            {category}
-          </span>
-          <div className="flex items-center gap-1 rounded-2xl bg-black/60 px-3 py-1.5 text-white backdrop-blur-md border border-zinc-800/50">
-            <span className="text-amber-400 text-xs">★</span>
-            <span className="text-[11px] font-bold">{rating}</span>
-          </div>
-        </div>
-
-        {/* Premium Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-90" />
-      </div>
-
-      {/* Content Section */}
-      <div className="flex flex-1 flex-col px-4 py-5">
-        <div className="flex flex-col gap-1">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400">
-            {brand}
-          </span>
-          <h3 className="text-xl font-black italic tracking-tight text-zinc-100 leading-tight">
-            {name.toUpperCase()}
-          </h3>
-        </div>
-
-        {/* Specs - Glassmorphism style for Dark Mode */}
-        <div className=" grid grid-cols-3 gap-2">
-          <div className="flex flex-col items-center rounded-2xl bg-zinc-900/50 py-2.5 border border-zinc-800/60">
-            <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-wider">Weight</span>
-            <span className="text-[11px] font-extrabold text-zinc-200 mt-0.5">{weight}</span>
-          </div>
-          <div className="flex flex-col items-center rounded-2xl bg-zinc-900/50 py-2.5 border border-zinc-800/60">
-            <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-wider">Torque</span>
-            <span className="text-[11px] font-extrabold text-zinc-200 mt-0.5">{torque}</span>
-          </div>
-          <div className="flex flex-col items-center rounded-2xl bg-zinc-900/50 py-2.5 border border-zinc-800/60">
-            <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-wider">Color</span>
-            <span className="text-[11px] font-extrabold text-zinc-200 mt-0.5">{color}</span>
-          </div>
-        </div>
-
-        {/* Price & Action Section */}
-        <div className="mt-auto flex flex-col  justify-between border-t border-zinc-800/80 pt-5">
-          <div className="flex flex-col">
-         
-            <span className="text-xl  font-black tracking-tight text-white">
-              {price.split(" ")[0]}
-              <span className="ml-1 text-xs text-cyan-400 font-bold uppercase">
-                {price.split(" ")[1]}
-              </span>
-            </span>
-          </div>
-
-          <Link
-            href={`/allbikes/${bike._id}`}
-            className="btn text-center"
-          >
+        {/* ডানপাশের ফ্লোটিং বাটনগুলো */}
+        <div className="absolute right-3 top-3 z-20 flex flex-col gap-2">
           
-           View Details
+          {/* কার্ট বাটন */}
+          <button
+            onClick={handleAddToCart}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-gray-700 hover:bg-orange-600 hover:text-white transition-all duration-300 shadow-md border border-gray-100 active:scale-90
+            xl:opacity-0 xl:translate-x-4 xl:group-hover:opacity-100 xl:group-hover:translate-x-0 transition-all duration-500 delay-[50ms]"
+            title="Add to Cart"
+          >
+            <ShoppingCart size={16} />
+          </button>
+
+          {/* উইশলিস্ট বাটন */}
+          <button
+            onClick={handleWishlistToggle}
+            className={`flex h-10 w-10 items-center justify-center rounded-full bg-white transition-all duration-300 shadow-md border border-gray-100 active:scale-90
+            xl:opacity-0 xl:translate-x-4 xl:group-hover:opacity-100 xl:group-hover:translate-x-0 duration-500 delay-[120ms] ${
+              isWishlisted ? "text-red-500" : "text-gray-700 hover:text-red-500"
+            }`}
+            title="Add to Wishlist"
+          >
+            <Heart size={16} className={isWishlisted ? "fill-red-500" : ""} />
+          </button>
+
+          {/* কম্পেয়ার বাটন */}
+          <button
+            onClick={handleCompareToggle}
+            className={`flex h-10 w-10 items-center justify-center rounded-full bg-white transition-all duration-300 shadow-md border border-gray-100 active:scale-90
+            xl:opacity-0 xl:translate-x-4 xl:group-hover:opacity-100 xl:group-hover:translate-x-0 duration-500 delay-[190ms] ${
+              isCompared ? "text-orange-500" : "text-gray-700 hover:text-orange-500"
+            }`}
+            title="Compare Bike"
+          >
+            <ArrowLeftRight size={16} />
+          </button>
+
+          {/* ভিউ ডিটেইলস (সার্চ আইকন) */}
+          <Link
+            href={`/allbikes/${_id}`}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-gray-700 hover:bg-orange-600 hover:text-white transition-all duration-300 shadow-md border border-gray-100 active:scale-90
+            xl:opacity-0 xl:translate-x-4 xl:group-hover:opacity-100 xl:group-hover:translate-x-0 duration-500 delay-[260ms]"
+            title="View Details"
+          >
+            <Search size={16} />
           </Link>
         </div>
+
+        {/* ইমেজের উপর সফট লাইট শ্যাডো গ্রেডিয়েন্ট */}
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/5 to-transparent pointer-events-none" />
+      </div>
+
+      {/* ২. টেক্সট কন্টেন্ট সেকশন (মাঝখানে বিন্যাস করা) */}
+      <div className="flex flex-1 flex-col pt-5 px-1 text-center">
+        
+        {/* ক্যাটাগরি */}
+        <span className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-orange-600 mb-1">
+          {category || "Accessories"}
+        </span>
+
+        {/* বাইকের নাম */}
+        <Link href={`/allbikes/${_id}`} className="hover:text-orange-600 transition-colors">
+          <h3 className="text-base font-bold text-gray-800 tracking-tight leading-snug line-clamp-2">
+            {name}
+          </h3>
+        </Link>
+
+        {/* ৩. স্টাইলিশ ছোট ডিভাইডার লাইন (হোভার করলে প্রসারিত হবে) */}
+        <div className="w-8 h-[1.5px] bg-gray-200 mx-auto my-3 transition-all duration-500 group-hover:w-16 group-hover:bg-orange-500" />
+
+        {/* ৪. স্টার রেটিং এবং দাম */}
+        <div className="mt-auto flex flex-col items-center gap-1">
+          
+          {/* রেটিং স্টার */}
+          <div className="flex items-center gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <span
+                key={i}
+                className={`text-sm ${
+                  i < Math.floor(rating || 5) ? "text-amber-400" : "text-gray-200"
+                }`}
+              >
+                ★
+              </span>
+            ))}
+          </div>
+
+          {/* দাম */}
+          <p className="text-lg font-black text-gray-900 tracking-tight mt-0.5">
+            {price}
+          </p>
+        </div>
+
       </div>
     </div>
   );

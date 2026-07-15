@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import GoogleLogin from "./GoogleLogin";
 
 const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
@@ -142,6 +143,9 @@ const RegisterForm = () => {
             )}
           </button>
         </form>
+
+        {/* Google Login */}
+        <GoogleLogin/>
 
         <div className="mt-8 pt-6 border-t border-gray-900 text-center">
           <p className="text-sm text-gray-500 font-medium">
