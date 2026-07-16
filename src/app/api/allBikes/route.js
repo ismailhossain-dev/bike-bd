@@ -4,8 +4,20 @@ import { NextResponse } from "next/server";
 
 //All bike get api
 export async function GET(request) {
-  const result = await dbConnect("bikeData").find().toArray();
-  return Response.json(result);
+ try {
+     const result = await dbConnect("bikeData").find().toArray();
+      NextResponse.json({
+        message: "allbikes api get successfully",
+        result,
+      },{status: 200})
+  
+ } catch (error) {
+    console.log(error)
+    NextResponse.json({
+      message: "allbikes data get failed",
+      error: error.message
+    }, {status: 500})
+ }
 }
 
 //add form post api

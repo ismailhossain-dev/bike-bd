@@ -1,10 +1,10 @@
 "use client";
-
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
-
+import Logo from "../Logo/Logo";
+import { FaArrowCircleRight } from "react-icons/fa";
 const Navbar = () => {
   const { data: session } = useSession();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -15,7 +15,6 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Shop", path: "/allbikes" },
     { name: "About", path: "/about" },
-    { name: "Contact Us", path: "/contact" },
     { name: "Dashboard", path: "/dashboard" },
   ];
 
@@ -25,17 +24,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           
           {/* ১. লোগো */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center group">
-              <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight transition-all duration-300">
-                <span className="text-white group-hover:text-orange-500 transition-colors">B</span>
-                <span className="inline-block w-2.5 h-2.5 bg-orange-600 rounded-full mx-0.5 animate-pulse"></span>
-                <span className="text-white group-hover:text-orange-500 transition-colors">ike</span>
-              </h1>
-            </Link>
-          </div>
+          <Logo />
 
-          {/* ২. ডেস্কটপ নেভিগেশন (হোভার ও অ্যাক্টিভ অ্যানিমেটেড বর্ডার সহ) */}
+          {/* ২. ডেস্কটপ নেভিগেশন */}
           <nav className="hidden xl:flex items-center space-x-6">
             {navLinks.map((link) => {
               const isActive = pathName === link.path;
@@ -43,14 +34,11 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   href={link.path}
-                  className={`relative py-2 text-sm font-semibold tracking-wide transition-colors duration-300 group ${
+                  className={`relative py-2 text-sm font-semibold tracking-wide transition-colors duration-300 group uppercase ${
                     isActive ? "text-orange-500" : "text-gray-400 hover:text-white"
                   }`}
                 >
-                  {/* মেনুর টেক্সট */}
                   <span>{link.name}</span>
-                  
-                  {/* নিচে ফুল-উইথ অ্যানিমেটেড বর্ডার */}
                   <span
                     className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-orange-600 to-amber-500 transition-all duration-300 ease-out ${
                       isActive 
@@ -65,20 +53,21 @@ const Navbar = () => {
 
           {/* ৩. ইউজার অ্যাকশন ও মোবাইল মেনু বাটন */}
           <div className="flex items-center gap-4">
-            {/* Create Account Button (Logged Out) */}
             {!session?.user && (
               <div className="hidden sm:flex items-center">
                 <Link
                   href="/register"
-                  className="relative group overflow-hidden bg-gradient-to-r from-orange-600 to-amber-500 px-6 py-2.5 rounded-full text-sm font-bold text-white transition-all duration-300 hover:shadow-lg hover:shadow-orange-600/20 active:scale-95"
+                  className="btn"
                 >
-                  <span className="relative z-10">Create Account</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <div className="flex items-center gap-2">
+                   Create Account
+                 <span className="text-white" ><FaArrowCircleRight size={20} /></span>
+                </div>
+                 
                 </Link>
               </div>
             )}
 
-            {/* প্রোফাইল ড্রপডাউন (Logged In) */}
             {session?.user && (
               <div className="relative">
                 <button
@@ -129,7 +118,7 @@ const Navbar = () => {
             {/* মোবাইল মেনু বাটন */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="xl:hidden p-2.5 rounded-xl bg-white/5 text-gray-300 hover:text-white hover:bg-white/10 transition-all active:scale-95"
+              className="xl:hidden p-2.5 rounded-xl bg-[#080808] text-gray-300 hover:text-white hover:bg-white/10 transition-all active:scale-95 border border-gray-800"
               aria-label="Toggle Menu"
             >
               {isMobileMenuOpen ? (
@@ -146,22 +135,23 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* --- মোবাইল সাইডবার --- */}
+      {/* --- মোবাইল সাইডবার ওভারলে ব্যাকড্রপ --- */}
       <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-md z-[60] transition-opacity duration-300 xl:hidden ${
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] transition-opacity duration-300 xl:hidden ${
           isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
       ></div>
 
+      {/* --- মোবাইল সাইডবার প্যানেল (bg-[#080808] কালার ম্যাচিং) --- */}
       <div
-        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-[#0c0c0c] z-[70] border-l border-gray-800/50 shadow-2xl transition-transform duration-300 ease-out transform xl:hidden ${
+        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-[#080808] z-[70] border-l border-gray-800/60 shadow-2xl transition-transform duration-300 ease-out transform xl:hidden ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full p-6">
           <div className="flex justify-between items-center mb-8">
-            <span className="text-orange-500 font-bold tracking-widest text-xs">MENU</span>
+            <span className="text-orange-500 font-black tracking-widest text-xs uppercase">Menu</span>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
               className="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition"
@@ -172,7 +162,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* মোবাইল মেনু লিংক */}
+          {/* মোবাইল নেভিগেশন লিংকসমূহ */}
           <div className="flex flex-col space-y-2">
             {navLinks.map((link) => {
               const isActive = pathName === link.path;
@@ -181,10 +171,10 @@ const Navbar = () => {
                   key={link.path}
                   href={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`relative px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                  className={`relative px-4 py-3 rounded-xl text-base font-semibold uppercase tracking-wide transition-all duration-200 ${
                     isActive
                       ? "bg-orange-600/10 text-orange-500 border border-orange-600/20"
-                      : "text-gray-300 hover:bg-white/5 hover:text-white"
+                      : "text-gray-400 hover:bg-white/5 hover:text-white"
                   }`}
                 >
                   {link.name}
@@ -193,12 +183,13 @@ const Navbar = () => {
             })}
           </div>
 
+          {/* মোবাইল একাউন্ট ক্রিয়েশন বাটন */}
           {!session?.user && (
-            <div className="mt-auto pt-6 border-t border-gray-800">
+            <div className="mt-auto pt-6 border-t border-gray-800/80">
               <Link
                 href="/register"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block w-full py-3 bg-gradient-to-r from-orange-600 to-amber-500 text-center rounded-xl font-bold text-white transition hover:opacity-95"
+                className="block w-full py-3.5 bg-gradient-to-r from-orange-600 to-amber-500 text-center rounded-xl font-black uppercase tracking-widest text-sm text-white transition hover:shadow-lg hover:shadow-orange-600/20 active:scale-[0.98]"
               >
                 Create Account
               </Link>

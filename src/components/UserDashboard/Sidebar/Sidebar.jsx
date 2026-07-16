@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LayoutDashboard, ShoppingBag, Settings, LogOut, Gamepad2, X } from "lucide-react";
 import { IoIosNotifications } from "react-icons/io";
+import Logo from "@/components/Logo/Logo";
 
 const menuItems = [
   { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
@@ -37,23 +38,11 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         `}
       >
         {/* Brand Logo */}
-        <div className="p-8 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-[0_0_20px_rgba(37,99,235,0.4)]">
-              <Gamepad2 size={22} />
-            </div>
-            <span className="text-xl font-black text-white tracking-tighter italic">
-              Bike<span className="text-blue-500">.</span>
-            </span>
-          </Link>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="lg:hidden text-slate-500 hover:text-white"
-          >
-            <X size={24} />
-          </button>
-        </div>
-
+        <div className=" px-8 flex items-center justify-between">
+         
+            <Logo/>
+          </div>
+   
         {/* Navigation */}
         <nav className="flex-1 px-4 space-y-1.5 mt-4">
           <p className="px-4 text-[10px] font-bold text-slate-600 uppercase tracking-[0.2em] mb-4">

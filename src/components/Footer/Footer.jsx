@@ -8,6 +8,7 @@ import {
   FaPhoneAlt,
   FaEnvelope,
 } from "react-icons/fa";
+import Logo from "../Logo/Logo";
 
 const Footer = () => {
   return (
@@ -18,11 +19,7 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="space-y-6">
             <div className="flex items-center">
-              <Link href="/">
-                <h1 className="text-2xl md:text-3xl font-bold flex items-center tracking-tighter">
-                  B<span className="w-2.5 h-2.5 bg-orange-600 rounded-full mt-2 mx-0.5"></span>ike
-                </h1>
-              </Link>
+             <Logo/>
             </div>
             <p className="text-sm leading-relaxed text-gray-500 italic font-medium">
               "Experience the ultimate freedom on two wheels. We provide the best premium bikes for
