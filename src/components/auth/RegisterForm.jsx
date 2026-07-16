@@ -4,75 +4,73 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Image from "next/image"; // Next.js Image component import kora hoyeche left side image er jonno
+import Image from "next/image"; 
 import GoogleLogin from "./GoogleLogin";
 
 const RegisterForm = () => {
-  const [loading, setLoading] = useState(false); // Loading state track korar jonno
-  const router = useRouter(); // Navigation/Redirect korar jonno Next.js router
+  const [loading, setLoading] = useState(false); 
+  const router = useRouter(); 
+  const [showPassword, setShowPassword] = useState(false); 
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Form submithole page jeno reload na hoy
-    setLoading(true); // Loading animation start korar jonno true kora hoyeche
+    e.preventDefault(); 
+    setLoading(true); 
 
-    const form = e.target; // Current form element niyo hoche
-    const name = form.name.value; // Name input field er value
-    const email = form.email.value; // Email input field er value
-    const password = form.password.value; // Password input field er value
+    const form = e.target; 
+    const name = form.name.value; 
+    const email = form.email.value; 
+    const password = form.password.value; 
 
-    const registerInfo = { name, email, password }; // Sob data eksathe object banano holo
+    const registerInfo = { name, email, password }; 
     try {
-      const result = await postUser(registerInfo); // Server action a data pathano hocche
+      /** * Trigger Server Action to securely process register payloads
+       */
+      const result = await postUser(registerInfo); 
 
       if (result?.success) {
-        toast.success("Account created successfully! 🏍️"); // Success message dekhano hocche
-        form.reset(); // Form input field gulo khali korar jonno
+        toast.success("Account created successfully! 🏍️"); 
+        form.reset(); 
       }
-      router.push("/login"); // Account tori hole login page a redirect kora hobe
+      router.push("/login"); 
     } catch (error) {
-      toast.error("Something went wrong!"); // Kono error hole notification dekhabe
-      console.error(error); // Debugging er jonno console e error print kora holo
+      toast.error("Something went wrong!"); 
+      console.error(error); 
     } finally {
-      setLoading(false); // Kaj sesh hole loading animation stop kora holo
+      setLoading(false); 
     }
   };
 
-  // Modern Professional White Theme Styling
   const inputStyle = `w-full px-4 py-3.5 rounded-xl border border-gray-200 
     bg-gray-50 text-gray-900 outline-none transition-all duration-300
     focus:border-orange-600 focus:ring-1 focus:ring-orange-600/50
-    placeholder:text-gray-400 shadow-sm`; // Light input field er premium design class
+    placeholder:text-gray-400 shadow-sm`; 
 
-  const labelStyle = `block text-xs font-black uppercase tracking-[0.2em] text-gray-500 mb-2 ml-1`; // Input label er bold modern class
+  const labelStyle = `block text-xs font-black uppercase tracking-[0.2em] text-gray-500 mb-2 ml-1`; 
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50 p-4 lg:p-8 relative overflow-hidden font-sans">
-      {/* Background soft decorative blur for high-end look */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-100 blur-[150px] rounded-full pointer-events-none opacity-50"></div>
 
-      {/* Main Split Layout Container */}
       <div className="w-full max-w-5xl bg-white rounded-[2.5rem] border border-gray-100 shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 relative z-10 min-h-[650px]">
         
-        {/* --- LEFT SIDE: Image Section (Responsive: Mobile e hide thakbe, LG te dekhabe) --- */}
+        {/* --- LEFT SIDE: Brand Banner --- */}
         <div className="hidden lg:block relative bg-gray-900">
           <Image
-            src="/assets/gsxr.jpeg" // Premium superbike image URL
-            fill // Pura container ta cover korar jonno layout fill
+            src="/assets/gsxr.jpeg" 
+            fill 
             alt="Elite Superbike"
-            className="object-cover opacity-90 transition-transform duration-700 hover:scale-105" // Hover e scale animation hobe
-            priority // Image jeno fast load hoy seijonno priority deya holo
+            className="object-cover opacity-90 transition-transform duration-700 hover:scale-105" 
+            priority 
           />
-          {/* Subtle dark overlay with brand text on the image */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-12">
             <span className="text-orange-500 font-extrabold text-xs uppercase tracking-[0.3em] mb-2">Join The Revolution</span>
             <h2 className="text-3xl font-black text-white uppercase tracking-tight leading-none italic">PROBIKE <br/><span className="text-orange-500">COMMUNITY</span></h2>
           </div>
         </div>
 
-        {/* --- RIGHT SIDE: Form Section (Sob screen e dekhabe) --- */}
+        {/* --- RIGHT SIDE: Core Authentication Form --- */}
         <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center">
           
-          {/* Header Section */}
           <div className="mb-8">
             <h1 className="text-3xl font-black text-gray-950 tracking-tighter uppercase italic">
               Create <span className="text-orange-600">Account</span>
@@ -83,7 +81,6 @@ const RegisterForm = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Full Name */}
             <div>
               <label className={labelStyle}>Full Name</label>
               <input
@@ -95,7 +92,6 @@ const RegisterForm = () => {
               />
             </div>
 
-            {/* Email */}
             <div>
               <label className={labelStyle}>Email Address</label>
               <input
@@ -107,19 +103,38 @@ const RegisterForm = () => {
               />
             </div>
 
-            {/* Password */}
+            {/* Password Input Wrapper with Show/Hide Controls */}
             <div>
-              <label className={labelStyle}>Password</label>
-              <input
-                type="password"
-                name="password"
-                required
-                className={inputStyle}
-                placeholder="••••••••"
-              />
+              <label className={labelStyle}>Password Sequence</label>
+              <div className="relative flex items-center">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  required
+                  placeholder="••••••••"
+                  className="w-full bg-gray-50 border border-gray-200 focus:border-orange-600 rounded-xl pl-4 pr-12 py-3.5 focus:outline-none focus:bg-white transition-all text-sm font-semibold text-gray-900 placeholder-gray-400"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 text-gray-400 hover:text-orange-600 transition-colors focus:outline-none"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
             </div>
 
-            {/* Submit Button */}
+            {/* Dynamic Interactive Loading CTA Button */}
             <button
               disabled={loading}
               type="submit"
@@ -150,12 +165,10 @@ const RegisterForm = () => {
             </button>
           </form>
 
-          {/* Google Login Component */}
           <div className="mt-2">
             <GoogleLogin />
           </div>
 
-          {/* Bottom Navigation Link */}
           <div className="mt-8 pt-6 border-t border-gray-100 text-center">
             <p className="text-sm text-gray-500 font-medium">
               Already a member?
