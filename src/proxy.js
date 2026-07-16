@@ -1,26 +1,22 @@
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
-
-const privateRoute = ["/manage-bike", "/add-bike", "/checkout"];
+const privateRoute = ["/dashboard", "/add-bike", "/checkout"];
 
 export async function proxy(req) {
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
-  const isAuthenticated = Boolean(token);
+
+  const isAuthenticated = !!token;
   const reqPath = req.nextUrl.pathname;
-  const isPrivateReq = privateRoute.some((route) => req.nextUrl.pathname.startsWith(route));
+
+  const isPrivateReq = privateRoute.some((route) =>
+    reqPath.startsWith(route)
+  );
 
   if (!isAuthenticated && isPrivateReq) {
-    return NextResponse.redirect(new URL(`/login?callbackUrl=${reqPath}`, req.url));
+    return NextResponse.redirect(
+      new URL(`/login?callbackUrl=${reqPath}`, req.url)
+    );
   }
-  // console.log({ token, isPrivateReq, reqPath, isAuthenticated });
 
   return NextResponse.next();
 }
-
-// Alternatively, you can use a default export:
-// export default function proxy(request) { ... }
-
-// See "Matching Paths" below to learn more
-export const config = {
-  matcher: ["/manage-bike/:path*", "/add-bike/:path*", "/checkout/:path*"],
-};
