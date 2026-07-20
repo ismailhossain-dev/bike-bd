@@ -30,7 +30,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       <aside
         className={`
             fixed top-0 left-0 z-50 
-            w-72 h-screen bg-[#0f0f0f] border-r border-white/5
+            w-72 h-screen bg-[#1f1d47] border-r border-white/5
             transform ${isOpen ? "translate-x-0" : "-translate-x-full"} 
             lg:translate-x-0 lg:sticky lg:top-0
             transition-transform duration-300 ease-in-out 
@@ -42,6 +42,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
          
             <Logo/>
           </div>
+          
    
         {/* Navigation */}
         <nav className="flex-1 px-4 space-y-1.5 mt-4">

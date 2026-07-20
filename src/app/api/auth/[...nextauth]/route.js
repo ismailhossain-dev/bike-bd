@@ -1,8 +1,12 @@
-import { dbConnect } from "@/lib/dbConnect";
+// import { dbConnect } from "@/lib/dbConnect";
+//mongose er jonno use
+
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import GoogleProvider from "next-auth/providers/google";
+import { dbConnect } from "@/lib/dbConnect";
+
 
 export const authOptions = {
   providers: [

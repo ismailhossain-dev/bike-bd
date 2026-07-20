@@ -3,7 +3,8 @@ import "./globals.css";
 // import Navbar from "@/components/Navbar/Navbar";
 // import Footer from "@/components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
-import NextAuthProvider from "@/Provider/NextAuthProvider";
+import NextAuthProvider from "@/provider/NextAuthProvider";
+
 
 
 const geistSans = Geist({
@@ -30,10 +31,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-      <NextAuthProvider>
+     <NextAuthProvider>
     <html lang="en">
       <body className={`${roboto.className} $ antialiased`}>
-      
+        
           {/* <Navbar /> */}
 
           <div className="min-h-[calc(100vh-472px)] bg-[#ffffff]">
@@ -47,9 +48,10 @@ export default function RootLayout({ children }) {
           </div>
 
           {/* <Footer /> */}
+          
 
       </body>
     </html>
-            </NextAuthProvider>
+         </NextAuthProvider>   
   );
 }

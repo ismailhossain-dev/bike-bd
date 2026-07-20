@@ -12,7 +12,7 @@ import Logo from "../Logo/Logo";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0a0a0a] text-gray-400 font-sans">
+    <footer className="bg-[#081838] text-gray-400 font-sans">
       {/* Main content */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -154,7 +154,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-900 bg-black py-8">
+      <div className="border-t border-gray-900 bg-[#081838] py-8">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-bold uppercase tracking-widest text-gray-600">
           <p>© 2026 BIKE. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-6 italic">

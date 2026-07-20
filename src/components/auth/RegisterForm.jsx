@@ -54,12 +54,12 @@ const RegisterForm = () => {
       <div className="w-full max-w-5xl bg-white rounded-[2.5rem] border border-gray-100 shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 relative z-10 min-h-[650px]">
         
         {/* --- LEFT SIDE: Brand Banner --- */}
-        <div className="hidden lg:block relative bg-gray-900">
+        <div className="hidden lg:block relative overflow-hidden group h-full">
           <Image
             src="/assets/gsxr.jpeg" 
             fill 
             alt="Elite Superbike"
-            className="object-cover opacity-90 transition-transform duration-700 hover:scale-105" 
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" 
             priority 
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-12">

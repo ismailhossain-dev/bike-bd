@@ -2,40 +2,31 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-// প্রয়োজনীয় আইকনগুলো ইম্পোর্ট করা হয়েছে
 import { Heart, ShoppingCart, ArrowLeftRight, Search } from "lucide-react";
+import WishlistButton from "../buttons/WishlistButton/WishlistButton";
 
 const BikeCard = ({ bike }) => {
-  // যদি কোনো ডাটা না থাকে, তাহলে কিছুই দেখাবে না
   if (!bike) return null;
 
-  // সহজ ডিস্ট্রাকচারিং (প্রয়োজনীয় ডাটাগুলো আলাদা করা)
   const { _id, name, price, rating, image, category } = bike;
 
-  // উইশলিস্ট এবং কম্পেয়ার বাটন অ্যাক্টিভ করার জন্য দুটি স্টেট (State)
-  const [isWishlisted, setIsWishlisted] = useState(false);
   const [isCompared, setIsCompared] = useState(false);
 
-  // উইশলিস্ট হ্যান্ডলার ফাংশন
-  const handleWishlistToggle = (e) => {
-    e.preventDefault(); // লিংক ক্লিক হওয়া থেকে আটকাবে
-    setIsWishlisted(!isWishlisted);
-  };
 
-  // কম্পেয়ার হ্যান্ডলার ফাংশন
+
   const handleCompareToggle = (e) => {
     e.preventDefault();
     setIsCompared(!isCompared);
   };
 
-  // কার্ট হ্যান্ডলার ফাংশন
+ 
   const handleAddToCart = (e) => {
     e.preventDefault();
     console.log(`${name} কার্টে যোগ করা হয়েছে!`);
   };
 
   return (
-    /* মূল কার্ড কন্টেইনার (সম্পূর্ণ হোয়াইট থিম, বর্ডার ও লাইট শ্যাডো সহ) */
+
     <div className="group relative flex flex-col bg-white border border-gray-100 rounded-3xl p-4 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:border-orange-200 h-full">
       
       {/* ১. ইমেজ কন্টেইনার (হোভার করলে জুম হবে) */}
@@ -62,16 +53,7 @@ const BikeCard = ({ bike }) => {
           </button>
 
           {/* উইশলিস্ট বাটন */}
-          <button
-            onClick={handleWishlistToggle}
-            className={`flex h-10 w-10 items-center justify-center rounded-full bg-white transition-all duration-300 shadow-md border border-gray-100 active:scale-90
-            xl:opacity-0 xl:translate-x-4 xl:group-hover:opacity-100 xl:group-hover:translate-x-0 duration-500 delay-[120ms] ${
-              isWishlisted ? "text-red-500" : "text-gray-700 hover:text-red-500"
-            }`}
-            title="Add to Wishlist"
-          >
-            <Heart size={16} className={isWishlisted ? "fill-red-500" : ""} />
-          </button>
+         <WishlistButton bike={bike}/>
 
           {/* কম্পেয়ার বাটন */}
           <button

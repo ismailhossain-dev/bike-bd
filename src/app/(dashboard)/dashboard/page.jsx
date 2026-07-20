@@ -40,7 +40,7 @@ const DashboardPage = () => {
   
 
   return (
-    <main className="min-h-screen text-slate-200 bg-[#050505] py-8 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen text-slate-200  py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         
       
@@ -50,7 +50,7 @@ const DashboardPage = () => {
           {statsData.map((stat, index) => (
             <div
               key={index}
-              className={`bg-[#0f0f0f] border-b-2 ${stat.border} p-6 rounded-2xl transition-all duration-300 hover:bg-[#151515] hover:-translate-y-1 shadow-xl shadow-black/40`}
+              className={` border-b-2 ${stat.border} p-6 rounded-2xl transition-all duration-300  hover:-translate-y-1 shadow-xl shadow-black/40`}
             >
               <div className="flex justify-between items-start mb-4">
                 <p className="text-[11px] text-slate-400 uppercase font-bold tracking-widest">
@@ -64,7 +64,7 @@ const DashboardPage = () => {
         </div>
 
         {/* User Orders / Riding Analytics Chart Section */}
-        <div className="mb-12 bg-[#0f0f0f] p-6 rounded-[2rem] border border-white/5 shadow-2xl shadow-black/50">
+        <div className="mb-12 p-6 rounded-[2rem] border border-white/5 shadow-2xl shadow-black/50">
           <div className="mb-6">
             <h3 className="text-lg font-bold text-white tracking-tight">Your Order & Maintenance Trends</h3>
             <p className="text-xs text-slate-500">Track your past retail orders and maintenance schedules over the last few weeks.</p>

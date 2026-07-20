@@ -12,7 +12,6 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 const Banner = () => {
-  // ৩টি স্লাইডের ডেমো ডাটা (বাইকের ছবি ও টেক্সট সহ)
   const slidesData = [
     {
       id: 1,
