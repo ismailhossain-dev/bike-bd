@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 
+
 const Page = async () => {
   //server client
   const session =await getServerSession(authOptions)

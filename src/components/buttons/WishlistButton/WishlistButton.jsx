@@ -22,7 +22,7 @@ const WishlistButton = ({ bike }) => {
     toast.warn("Please login first");
     return;
   }
-    setIsWishlisted(!isWishlisted);
+    
     try {
       const wishlistData = {
         //id ta ditese backend cheek korar jonno ei wishlit age teke user exist kore rakse kina
@@ -39,13 +39,16 @@ const WishlistButton = ({ bike }) => {
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/wishlist`,
         wishlistData,
       );
-      // console.log("client wishlist", res);
+        //axios use korle response ta data vitor pai
+      if (res.data.result.acknowledged) {
+        setIsWishlisted(true);
+        return toast.success("Successfully added wishlist");
+      }
+      // console.log("client wishlist", res.data);
     } catch (error) {
       console.log("wishlist post client error", error);
     }
-    // finally{
 
-    // }
   };
   return (
     <div>
