@@ -7,8 +7,9 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 
 const Page = async () => {
+  //server client
   const session =await getServerSession(authOptions)
-  console.log("page user", session)
+ 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/products`,
     {
