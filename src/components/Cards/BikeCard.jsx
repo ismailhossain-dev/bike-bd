@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Heart, ShoppingCart, ArrowLeftRight, Search } from "lucide-react";
 import WishlistButton from "../buttons/WishlistButton/WishlistButton";
+import AddtoCart from "../buttons/AddToCart/AddtoCart";
 
 const BikeCard = ({ bike }) => {
   if (!bike) return null;
@@ -20,10 +21,7 @@ const BikeCard = ({ bike }) => {
   };
 
  
-  const handleAddToCart = (e) => {
-    e.preventDefault();
-    console.log(`${name} কার্টে যোগ করা হয়েছে!`);
-  };
+
 
   return (
 
@@ -43,14 +41,7 @@ const BikeCard = ({ bike }) => {
         <div className="absolute right-3 top-3 z-20 flex flex-col gap-2">
           
           {/* কার্ট বাটন */}
-          <button
-            onClick={handleAddToCart}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-gray-700 hover:bg-orange-600 hover:text-white transition-all duration-300 shadow-md border border-gray-100 active:scale-90
-            xl:opacity-0 xl:translate-x-4 xl:group-hover:opacity-100 xl:group-hover:translate-x-0 transition-all duration-500 delay-[50ms]"
-            title="Add to Cart"
-          >
-            <ShoppingCart size={16} />
-          </button>
+         <AddtoCart bike={bike}/>
 
           {/* উইশলিস্ট বাটন */}
          <WishlistButton bike={bike}/>
