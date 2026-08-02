@@ -44,10 +44,10 @@ export default function RootLayout({ children }) {
         
           {/* <Navbar /> */}
 
-          <div className="min-h-[calc(100vh-472px)] bg-[#ffffff]">
+          <div className="min-h-[calc(100vh-472px)] bg-[#121212]">
               
        
-              <div>
+              <div className="#121212">
                 <main>{children}</main>
               </div>
             

@@ -9,10 +9,11 @@ export async function  GET(){
                 image: 1, 
                 category: 1, 
                 rating: 1, 
-                price: 1
+                price: 1,
+                brand:1,
 
             }
-        }).limit(10).toArray()
+        }).limit(8).toArray()
         return NextResponse.json(
             {
                 "message": "home product get successfully",

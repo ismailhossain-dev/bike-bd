@@ -11,8 +11,6 @@ export async function DELETE(request, { params }) {
 
     const query = { _id: new ObjectId(id) };
 
-    const result = await dbConnect("bikeData").deleteOne(query);
-
     // console.log("id console", id, query, result);
     if (result.deletedCount === 1) {
       return NextResponse.json({ message: "Deleted successfully" }, { status: 200 });
