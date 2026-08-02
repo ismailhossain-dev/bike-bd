@@ -1,169 +1,238 @@
 "use client";
-import GoogleLogin from "@/components/auth/GoogleLogin";
-import Footer from "@/components/Footer/Footer";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+import { motion } from "framer-motion";
+import { Eye, EyeOff, LogIn, ArrowRight, ShieldCheck, AlertCircle } from "lucide-react";
+
+import GoogleLogin from "@/components/auth/GoogleLogin";
+import Footer from "@/components/Footer/Footer";
 
 const LoginForm = () => {
   const router = useRouter();
   const [error, setError] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // পাসওয়ার্ড স্টেটের জন্য
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const res = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
+    try {
+      const res = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
 
-    if (res.error) {
-      setError("Invalid Email or Password!");
-    } else {
-      router.push("/");
-      router.refresh();
+      if (res?.error) {
+        setError("Invalid Email or Password!");
+      } else {
+        router.push("/");
+        router.refresh();
+      }
+    } catch (err) {
+      setError("An unexpected error occurred. Please try again.");
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
+  const inputStyle = `w-full bg-[#0b0c10] border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-red-600 transition-colors font-medium`;
+  const labelStyle = `block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2`;
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50/50 text-gray-900 flex flex-col justify-between antialiased">
-      <div className="flex-grow flex items-center justify-center p-4 md:p-8 lg:p-12">
-        <div className="bg-white rounded-[2.5rem] border border-gray-100 shadow-xl shadow-gray-200/50 overflow-hidden w-full max-w-5xl grid lg:grid-cols-2 min-h-[600px] lg:min-h-[650px]">
+    <div className="min-h-screen bg-[#0b0c10] text-white flex flex-col justify-between font-sans relative overflow-hidden">
+      
+      {/* Background Radial Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <main className="flex-grow flex items-center justify-center p-4 md:p-8 lg:p-12 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="bg-[#141620] rounded-3xl border border-white/10 shadow-2xl overflow-hidden w-full max-w-5xl grid lg:grid-cols-12 min-h-[600px] lg:min-h-[650px]"
+        >
           
-          {/* Left Side: Premium Image Overlay Gallery Showcase (50% Width) */}
-          <div className="hidden lg:block relative overflow-hidden group h-full">
-            <img 
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" 
+          {/* --- LEFT SIDE: Image Gallery Showcase (50% / 5 Cols Width) --- */}
+          <div className="hidden lg:block lg:col-span-5 relative overflow-hidden group">
+            <Image 
               src="/assets/gpx.jpeg" 
-              alt="login-bike" 
+              alt="Login Bike Showcase"
+              fill
+              priority
+              className="object-cover object-center transition-transform duration-700 group-hover:scale-105 filter brightness-75"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-between p-8 z-10">
-              <span className="text-xs font-black uppercase tracking-[0.3em] text-blue-400 bg-white/10 border border-white/20 px-3 py-1.5 rounded-md self-start backdrop-blur-md">
-                Rider Core v2.0
-              </span>
+            
+            {/* Dark Overlay Gradients */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#141620] via-black/40 to-transparent flex flex-col justify-between p-10 z-10">
+              <div className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-red-500 bg-black/60 backdrop-blur-md border border-red-500/20 px-3 py-1.5 rounded-full w-fit">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>Rider Core v2.0</span>
+              </div>
+
               <div>
-                <h3 className="text-2xl font-black uppercase tracking-tight italic text-white mb-2">
-                  Unleash The <br/> <span className="text-blue-400">Power Within</span>
+                <span className="text-red-500 font-extrabold text-xs uppercase tracking-[0.3em] mb-2 block">
+                  Access Portal
+                </span>
+                <h3 className="text-3xl font-black uppercase tracking-tight italic text-white mb-2 leading-tight">
+                  Unleash The <br />
+                  <span className="text-red-600">Power Within</span>
                 </h3>
-                <p className="text-xs text-gray-300 leading-relaxed font-medium">
+                <p className="text-xs text-gray-400 leading-relaxed font-medium">
                   Log in to access your customized motorcycle configuration portfolio dashboard panel.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Side: Informative Typography & Form Section (50% Width) */}
-          <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-gray-100">
+          {/* --- RIGHT SIDE: Form Section (7 Cols Width) --- */}
+          <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 flex flex-col justify-center">
             
-            {/* Header Typography */}
-            <div className="mb-8">
-              <h1 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic text-gray-950">
-                Welcome <span className="text-blue-600">Back</span>
-              </h1>
-              <p className="text-gray-500 mt-2 text-xs font-semibold tracking-wide">
-                Securely authenticate credential parameters to manage your assets
-              </p>
-            </div>
+            <motion.div 
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: { transition: { staggerChildren: 0.1 } }
+              }}
+              className="w-full max-w-md mx-auto"
+            >
+              {/* Header Typography */}
+              <motion.div variants={fadeInUp} className="mb-8">
+                <span className="px-3 py-1 bg-red-600/10 border border-red-500/20 text-red-500 text-[11px] font-black uppercase tracking-widest inline-block mb-3">
+                  Welcome Back
+                </span>
+                <h1 className="text-3xl sm:text-4xl font-black uppercase italic tracking-tight">
+                  Rider <span className="text-red-600">Login</span>
+                </h1>
+                <p className="text-gray-400 text-xs sm:text-sm font-medium mt-2">
+                  Authenticate your credentials to manage your garage.
+                </p>
+              </motion.div>
 
-            {/* Error Message Layout Alert */}
-            {error && (
-              <div className="bg-red-5 border border-red-200 text-red-600 text-xs font-bold p-3 rounded-xl mb-6 text-center tracking-wide uppercase shadow-sm">
-                {error}
-              </div>
-            )}
+              {/* Error Alert */}
+              {error && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }} 
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold p-4 rounded-xl mb-6 flex items-center gap-2.5"
+                >
+                  <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-500" />
+                  <span>{error}</span>
+                </motion.div>
+              )}
 
-            {/* Login Credential Form */}
-            <form onSubmit={handleLogin} className="space-y-5">
-              <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="rider@example.com"
-                  className="w-full bg-gray-50 border border-gray-200 focus:border-blue-500 rounded-xl px-4 py-3.5 focus:outline-none focus:bg-white transition-all text-sm font-semibold text-gray-900 placeholder-gray-400"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">
-                  Password Sequence
-                </label>
-                {/* ইনপুট এবং বাটন একসাথে রাখার জন্য পজিশন রিলেটিভ করা হয়েছে */}
-                <div className="relative flex items-center">
+              {/* Login Form */}
+              <form onSubmit={handleLogin} className="space-y-5">
+                
+                <motion.div variants={fadeInUp}>
+                  <label className={labelStyle}>Email Address *</label>
                   <input
-                    type={showPassword ? "text" : "password"}
-                    name="password"
+                    type="email"
+                    name="email"
                     required
-                    placeholder="••••••••"
-                    className="w-full bg-gray-50 border border-gray-200 focus:border-blue-500 rounded-xl pl-4 pr-12 py-3.5 focus:outline-none focus:bg-white transition-all text-sm font-semibold text-gray-900 placeholder-gray-400"
+                    placeholder="rider@autobike.com"
+                    className={inputStyle}
                   />
-                  {/* Eye Icon Button */}
+                </motion.div>
+
+                {/* Password Field */}
+                <motion.div variants={fadeInUp}>
+                  <label className={labelStyle}>Password Sequence *</label>
+                  <div className="relative flex items-center">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      required
+                      placeholder="••••••••"
+                      className={`${inputStyle} pr-12`}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-4 text-gray-500 hover:text-red-500 transition-colors focus:outline-none"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
+                    >
+                      {showPassword ? (
+                        <EyeOff className="w-4 h-4" />
+                      ) : (
+                        <Eye className="w-4 h-4" />
+                      )}
+                    </button>
+                  </div>
+                </motion.div>
+
+                {/* CTA Submit Button */}
+                <motion.div variants={fadeInUp} className="pt-2">
                   <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 text-gray-400 hover:text-blue-500 transition-colors focus:outline-none"
-                    aria-label={showPassword ? "Hide password" : "Show password"}
+                    disabled={loading}
+                    type="submit"
+                    className="w-full bg-red-600 hover:bg-red-700 disabled:bg-gray-800 disabled:text-gray-500 text-white font-black text-xs uppercase tracking-widest py-4 rounded-xl shadow-lg shadow-red-600/20 transition-all duration-300 active:scale-95 flex items-center justify-center gap-2 group cursor-pointer"
                   >
-                    {showPassword ? (
-                      // বন্ধ চোখের আইকন (Eye Off)
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
-                      </svg>
+                    {loading ? (
+                      <span className="flex items-center gap-2">
+                        <svg className="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Authenticating...
+                      </span>
                     ) : (
-                      // খোলা চোখের আইকন (Eye Open)
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                      </svg>
+                      <>
+                        <LogIn className="w-4 h-4" />
+                        <span>Login Now</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </>
                     )}
                   </button>
+                </motion.div>
+              </form>
+
+              {/* OAuth Separator & Google Login */}
+              <motion.div variants={fadeInUp} className="mt-6">
+                <div className="relative flex items-center justify-center mb-6">
+                  <div className="border-t border-white/10 w-full" />
+                  <span className="bg-[#141620] px-3 text-[10px] font-black uppercase tracking-widest text-gray-500 absolute">
+                    OR
+                  </span>
                 </div>
-              </div>
+                <GoogleLogin />
+              </motion.div>
 
-              <button
-                type="submit"
-                className="w-full btn text-white font-black uppercase tracking-widest py-4 rounded-xl transition-all transform hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-blue-600/10"
-              >
-                Login Now
-              </button>
-            </form>
+              {/* Register Redirect Navigation */}
+              <motion.div variants={fadeInUp} className="mt-8 text-center pt-6 border-t border-white/10">
+                <p className="text-xs text-gray-400 font-medium">
+                  Don't have an active account?
+                  <Link
+                    href="/register"
+                    className="ml-2 text-red-500 font-extrabold uppercase tracking-wider hover:text-red-400 transition-colors underline underline-offset-4"
+                  >
+                    Register Here
+                  </Link>
+                </p>
+              </motion.div>
 
-            {/* Third Party OAuth Separator */}
-            <div className="relative my-6 flex items-center justify-center">
-              <div className="absolute w-full border-t border-gray-200"></div>
-              <span className="relative bg-white px-4 text-[9px] font-black uppercase tracking-widest text-gray-400">
-                Or Framework Identity
-              </span>
-            </div>
+            </motion.div>
 
-            <div className="w-full">
-              <GoogleLogin />
-            </div>
-
-            {/* Register Redirect Navigation Footer Link */}
-            <p className="text-center text-gray-400 mt-8 text-xs font-semibold tracking-wide">
-              Don't have an active account profile?{" "}
-              <Link
-                href="/register"
-                className="text-blue-600 hover:text-blue-500 font-black transition-colors underline underline-offset-4 ml-1"
-              >
-                Register Here
-              </Link>
-            </p>
           </div>
 
-        </div>
-      </div>
+        </motion.div>
+      </main>
+
       <Footer />
     </div>
   );

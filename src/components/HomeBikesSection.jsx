@@ -20,10 +20,10 @@ const HomeBikesSection = ({ bikes = [] }) => {
     <section className="bg-[#0a0a0a] py-16 px-4 sm:px-8 lg:px-12 border-b border-white/5">
       <div className="max-w-7xl mx-auto">
         
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-6 mb-10 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-6 mb-10 items-center">
           
           <div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white">
+            <h2 className="text-3xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white">
               LATEST MOTORBIKES
             </h2>
           </div>
@@ -50,7 +50,7 @@ const HomeBikesSection = ({ bikes = [] }) => {
         </div>
 
         {filteredBikes.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {filteredBikes.map((bike) => (
               <BikeCard key={bike._id || bike.name} bike={bike} />
             ))}

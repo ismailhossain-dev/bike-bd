@@ -18,7 +18,7 @@ const DashboardWrapper = ({ children }) => {
         <DashboardNavbar setIsSidebarOpen={setIsSidebarOpen}></DashboardNavbar>
 
         {/* Scrollable Main Content */}
-        <main className="flex-1 overflow-y-auto p-6 md:p-10 custom-scrollbar bg-[#031637]">
+        <main className="flex-1 overflow-y-auto p-6 md:p-10 custom-scrollbar bg-[#0b0c10]">
           <div className="max-w-7xl mx-auto">{children}</div>
         </main>
       </div>
