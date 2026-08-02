@@ -59,7 +59,7 @@ const Navbar = () => {
               href="mailto:info@autobike.com"
               className="hover:text-orange-500 transition-colors font-medium"
             >
-              info@autobike.com
+              ismil.dev69k@gmil.com
             </a>
           </div>
 
