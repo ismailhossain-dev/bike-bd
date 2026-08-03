@@ -35,6 +35,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "HOME PAGE", path: "/" },
     { name: "SHOP", path: "/allbikes" },
+    { name: "Accessories", path: "/our-all-accessories" },
     { name: "ABOUT US", path: "/about" },
     { name: "CONTACT", path: "/contact" },
     // { name: "INVENTORY", path: "/inventory" },

@@ -1,0 +1,239 @@
+[
+  {
+    "name": "RSR04B Drymaster Rain Suit",
+    "brand": "Oxford",
+    "category": "Rain Suit",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785739921/bik-1_gzjirc.jpg",
+    "price": "$47.90",
+    "rating": 4.8,
+    "reviewCount": 124,
+    "details": "Waterproof motorcycle rain suit designed for all-weather riding.",
+    "features": [
+      "100% Waterproof",
+      "Reflective Panels",
+      "Breathable Fabric",
+      "Windproof"
+    ],
+    "featured": true
+  },
+  {
+    "name": "HJC CL-Y Solid Helmet",
+    "brand": "HJC",
+    "category": "Helmet",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785739920/bik-2_ss1noc.jpg",
+    "price": "$60.00",
+    "rating": 4.9,
+    "reviewCount": 95,
+    "details": "Lightweight full-face helmet with excellent ventilation.",
+    "features": [
+      "DOT Certified",
+      "Anti-Scratch Visor",
+      "Lightweight Shell",
+      "Quick Release Strap"
+    ],
+    "featured": true
+  },
+  {
+    "name": "Knee Pad Elbow Pads",
+    "brand": "Fox",
+    "category": "Protection",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785739920/bik-3_hysg6a.jpg",
+    "price": "$59.90",
+    "rating": 4.7,
+    "reviewCount": 81,
+    "details": "Comfortable protective gear for motorcycle riders.",
+    "features": [
+      "Shock Resistant",
+      "Adjustable Straps",
+      "Breathable Design",
+      "Lightweight"
+    ],
+    "featured": true
+  },
+  {
+    "name": "City Hunter Backpack",
+    "brand": "Alpinestars",
+    "category": "Backpack",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785739920/bik-4_v921sh.jpg",
+    "price": "$64.80",
+    "rating": 4.8,
+    "reviewCount": 66,
+    "details": "Durable motorcycle backpack with multiple compartments.",
+    "features": [
+      "Water Resistant",
+      "USB Charging Port",
+      "Laptop Compartment",
+      "Ergonomic Design"
+    ],
+    "featured": true
+  },
+  {
+    "name": "Vented Street Shoe",
+    "brand": "Forma",
+    "category": "Riding Shoes",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785739920/bik-5_lhdnqp.jpg",
+    "price": "$29.00",
+    "rating": 4.6,
+    "reviewCount": 74,
+    "details": "Comfortable riding shoes with ventilation for daily use.",
+    "features": [
+      "Anti-Slip Sole",
+      "Breathable",
+      "Ankle Protection",
+      "Lightweight"
+    ],
+    "featured": true
+  },
+  {
+    "name": "Air Carbon V2 Gloves",
+    "brand": "Alpinestars",
+    "category": "Gloves",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785739920/bik-6_s4u9pn.jpg",
+    "price": "$37.00",
+    "rating": 4.9,
+    "reviewCount": 110,
+    "details": "Premium riding gloves with carbon fiber knuckle protection.",
+    "features": [
+      "Carbon Protection",
+      "Touchscreen Compatible",
+      "Leather Finish",
+      "Adjustable Wrist"
+    ],
+    "featured": true
+  },
+  {
+    "name": "Mountain Bike Gloves",
+    "brand": "Troy Lee Designs",
+    "category": "Gloves",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785739931/bik-7_uo7bl9.jpg",
+    "price": "$75.00",
+    "rating": 4.8,
+    "reviewCount": 88,
+    "details": "High-performance gloves for on-road and off-road riding.",
+    "features": [
+      "Breathable Mesh",
+      "Excellent Grip",
+      "Flexible Design",
+      "Reinforced Palm"
+    ],
+    "featured": true
+  },
+  {
+    "name": "Drystar Riding Shoes",
+    "brand": "Alpinestars",
+    "category": "Riding Shoes",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785739931/bik-8_f47n6x.jpg",
+    "price": "$68.00",
+    "rating": 4.7,
+    "reviewCount": 92,
+    "details": "Premium waterproof riding shoes with reinforced protection.",
+    "features": [
+      "Waterproof",
+      "Toe Protection",
+      "Anti-Slip Sole",
+      "Comfort Fit"
+    ],
+    "featured": true
+  },
+  {
+    "name": "Leather Jacket",
+    "brand": "Alpinestars",
+    "category": "Jacket",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785745089/bike-9_kostyp.jpg",
+    "rating": 5,
+    "reviewCount": 142,
+    "details": "Premium leather motorcycle jacket designed for maximum protection and comfort.",
+    "features": [
+      "Genuine Leather",
+      "CE Approved Protection",
+      "Breathable Lining",
+      "Water Resistant"
+    ],
+    "featured": false
+  },
+  {
+    "name": "Mountain Bike Glove",
+    "brand": "Troy Lee Designs",
+    "category": "Gloves",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785745090/bike-10_ii1dmw.jpg",
+    "price": "$75.00",
+    "rating": 5,
+    "reviewCount": 98,
+    "details": "Comfortable riding gloves with reinforced palm and breathable mesh.",
+    "features": [
+      "Touchscreen Compatible",
+      "Anti-Slip Grip",
+      "Breathable Fabric",
+      "Lightweight"
+    ],
+    "featured": false
+  },
+  {
+    "name": "Mountain Bike Knee Guards",
+    "brand": "Fox Racing",
+    "category": "Protection",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785745090/bike-11_ftxdty.jpg",
+    "price": "$22.60",
+    "rating": 5,
+    "reviewCount": 74,
+    "details": "Lightweight knee guards offering excellent impact protection.",
+    "features": [
+      "Shock Absorption",
+      "Adjustable Straps",
+      "Breathable Material",
+      "Flexible Design"
+    ],
+    "featured": false
+  },
+  {
+    "name": "Outdoor Trekking Jacket",
+    "brand": "Oxford",
+    "category": "Jacket",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785745090/bike-12_fi8ddz.jpg",
+    "price": "$45.00",
+    "rating": 4.5,
+    "reviewCount": 89,
+    "details": "Outdoor riding jacket built for long-distance touring and trekking.",
+    "features": [
+      "Windproof",
+      "Water Resistant",
+      "Reflective Panels",
+      "Comfort Fit"
+    ],
+    "featured": false
+  },
+  {
+    "name": "Protection Riding Jacket",
+    "brand": "Dainese",
+    "category": "Jacket",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785745090/bike-13_qbuyaa.jpg",
+    "price": "$75.00",
+    "rating": 5,
+    "reviewCount": 126,
+    "details": "Professional riding jacket with CE-certified shoulder and elbow protection.",
+    "features": [
+      "CE Armor",
+      "Mesh Ventilation",
+      "Premium Fabric",
+      "Adjustable Waist"
+    ],
+    "featured": false
+  },
+  {
+    "name": "RSR048 Drymaster Rain Suit",
+    "brand": "Dainese",
+    "category": "Rain Suit",
+    "image": "https://res.cloudinary.com/ddfgi0gdr/image/upload/v1785745090/bike-14_tjtk4j.jpg",
+    "price": "$55.40",
+    "rating": 5,
+    "reviewCount": 117,
+    "details": "High-quality waterproof rain suit for all-weather motorcycle riding.",
+    "features": [
+      "100% Waterproof",
+      "Reflective Design",
+      "Windproof",
+      "Compact Storage Bag"
+    ],
+    "featured": false
+  }
+]

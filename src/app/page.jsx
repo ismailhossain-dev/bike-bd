@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar/Navbar";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import HomeBikesSection from "@/components/HomeBikesSection";
+import HelpsFindBike from "@/components/Home/HelpsFindBike/HelpsFindBike";
+import OurProducts from "@/components/Home/OurProducts/OurProducts";
 
 const Page = async () => {
   const session = await getServerSession(authOptions);
@@ -24,6 +26,13 @@ const Page = async () => {
 
       {/* product card*/}
       <HomeBikesSection bikes={bikes} />
+
+      
+        {/* Helps find bike */}
+      <HelpsFindBike/>
+
+      {/* Our Products */}
+      <OurProducts/>
 
       <FeaturesSection />
       <Footer />

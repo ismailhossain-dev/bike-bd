@@ -145,7 +145,7 @@ const BikeCard = ({ bike }) => {
 
           <Link
             href={`/allbikes/${_id}`}
-            className="px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-xs font-black uppercase tracking-wider transition-colors duration-200"
+            className="btn"
           >
             VIEW MORE
           </Link>

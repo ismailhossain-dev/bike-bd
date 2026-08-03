@@ -50,7 +50,7 @@ export const FeaturesSection = () => {
             <span>Premium Performance</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase italic leading-none">
+          <h2 className="text-3xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white">
             Our Feature{" "}
             <span className="bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 bg-clip-text text-transparent drop-shadow-sm">
               Services

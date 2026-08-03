@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { toast } from "react-toastify";
+
 import { useSession } from "next-auth/react";
 import useAxiosSecure from "@/components/hooks/useAxiosSecure";
 
@@ -48,7 +48,7 @@ const DashboardMyProfilePage = () => {
       setUser(res.data?.result);
     } catch (error) {
       console.error("Failed to fetch user data:", error);
-      toast.error("Failed to load profile data.");
+      // toast.error("Failed to load profile data.");
     } finally {
       setIsLoading(false);
     }
