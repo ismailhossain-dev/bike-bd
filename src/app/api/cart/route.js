@@ -36,3 +36,24 @@ export async function POST (req) {
     {status: 500})
     }
 }
+
+//cart get with query parameters 
+
+export async function GET (req) {
+    try {
+        const {searchParams} = new URL(req.url);
+        const email = searchParams.get("email")
+        const result = await dbConnect("cart").find({email}).toArray()
+        return NextResponse.json({
+            result, 
+            message: "cart get successfully"
+        }, {status: 200})
+        
+    } catch (error) {
+        console.log(error);
+        return NextResponse.json({
+            message: "cart get successfully",
+            error: error.message
+        }, {status: 500})
+    }
+}

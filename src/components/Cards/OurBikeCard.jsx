@@ -5,9 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heart, Eye, ShoppingCart, Star } from "lucide-react";
 import { toast } from "react-toastify";
+import WishlistButton from "../buttons/WishlistButton/WishlistButton";
+import AddtoCart from "../buttons/AddToCart/AddtoCart";
 
 const OurBikeCard = ({ bike }) => {
-  console.log("bikeCard", bike);
+  // console.log("bikeCard", bike);
 
   // Destructure properties safely from the bike prop
   const {
@@ -49,24 +51,16 @@ const OurBikeCard = ({ bike }) => {
           />
         </div>
 
-        {/* Floating Action Icons (Heart & Eye): 
-            - Mobile/SM: Always visible (opacity-100)
-            - Desktop/MD+: Hidden by default, visible on hover (md:opacity-0 md:group-hover:opacity-100) */}
+        
         <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 z-10">
           
           {/* Wishlist Button */}
-          <button
-            type="button"
-            onClick={handleAddToWishlist}
-            className="w-9 h-9 bg-[#141620]/80 hover:bg-red-600 text-white rounded-full flex items-center justify-center border border-white/10 backdrop-blur-md shadow-lg transition-transform hover:scale-110 cursor-pointer"
-            aria-label="Add to Wishlist"
-          >
-            <Heart size={16} />
-          </button>
+        <WishlistButton bike={bike}/>
 
+        <AddtoCart bike={bike}/>
           {/* Quick View Details Button */}
           <span
-            className="w-9 h-9 bg-[#141620]/80 hover:bg-red-600 text-white rounded-full flex items-center justify-center border border-white/10 backdrop-blur-md shadow-lg transition-transform hover:scale-110 cursor-pointer"
+            className="w-10 h-10 bg-white text-black hover:bg-red-600  rounded-full flex items-center justify-center border border-white/10 backdrop-blur-md shadow-lg transition-transform hover:scale-110 cursor-pointer"
             aria-label="Quick View Details"
           >
             <Eye size={16} />
