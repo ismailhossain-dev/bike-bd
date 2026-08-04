@@ -18,10 +18,11 @@ import Logo from "@/components/Logo/Logo";
 
 const menuItems = [
   { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-  { name: "Manage Bikes", path: "/dashboard/manage-bikes", icon: Bike },
-  { name: "Add Bike", path: "/dashboard/add-bike", icon: PlusCircle },
-  { name: "Profile", path: "/dashboard/my-profile", icon: User },
-  { name: "Settings", path: "/dashboard/settings", icon: Settings },
+  { name: "My wishlist", path: "/dashboard/my-wishlist", icon: Bike },
+  { name: "My Cart", path: "/dashboard/my-cart", icon: PlusCircle },
+  { name: "My Order", path: "/dashboard/my-order", icon: PlusCircle },
+  { name: "My Profile", path: "/dashboard/my-profile", icon: User },
+
 ];
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
