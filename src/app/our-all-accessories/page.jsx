@@ -18,7 +18,7 @@ const AccessoriesPage = async () => {
   return (
     <div>
       <Navbar />
-      <div className="max-w-7xl mx-auto lg:max-[1420px] bg-[#0a0a0a] py-16 px-4 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto lg:max-[1420px]  py-16 px-4 sm:px-8 lg:px-12">
         <div className="text-4xl font-bold1">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {bikes.map((bike) => (

@@ -90,7 +90,7 @@ const Page = async ({ searchParams }) => {
     <div className="bg-[#0b0c10] text-gray-100 min-h-screen flex flex-col justify-between">
       <Navbar />
 
-      <main className="container mx-auto my-6 md:my-10 px-4 sm:px-6 lg:px-8 flex-grow">
+      <main className="container mx-auto my-6 md:my-10 px-4 sm:px-6 lg:px-8 flex-grow max-w-7xl  lg:max-[1420px]">
         
         {/* --- Header Banner --- */}
         <div className="bg-gradient-to-r from-[#121212] via-[#1a1a1a] to-[#121212] rounded-2xl p-6 sm:p-10 mb-8 border border-white/10 relative overflow-hidden shadow-2xl">

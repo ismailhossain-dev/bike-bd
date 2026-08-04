@@ -12,7 +12,6 @@ import {
   Menu,
   X,
   ChevronRight,
-  Search,
   ShoppingCart,
   Facebook,
   Linkedin,
@@ -110,13 +109,13 @@ const Navbar = () => {
         {/* ডানপাশের আইকনসমূহ ও ইউজার প্রোফাইল */}
         <div className="flex items-center space-x-5 px-4 sm:px-6 lg:px-8">
           {/* সার্চ বাটন */}
-          <button className="text-gray-200 hover:text-red-500 transition-colors p-1">
+          {/* <button className="text-gray-200 hover:text-red-500 transition-colors p-1">
             <Search size={19} />
-          </button>
+          </button> */}
 
           {/* কার্ট আইকন (Badge সহ) */}
           <Link
-            href="/cart"
+            href="/dashboard/my-cart"
             className="relative text-gray-200 hover:text-red-500 transition-colors p-1"
           >
             <ShoppingCart size={20} />
@@ -193,9 +192,10 @@ const Navbar = () => {
           ) : (
             <Link
               href="/register"
-              className="text-gray-200 hover:text-red-500 transition-colors p-1"
+              className="text-gray-200 hover:text-red-500 transition-colors p-1 uppercase btn"
             >
-              <User size={20} />
+              {/* <User size={20} /> */}
+              Register
             </Link>
           )}
 
