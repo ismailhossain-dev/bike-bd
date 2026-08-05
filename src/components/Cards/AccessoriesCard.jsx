@@ -76,7 +76,7 @@ const AccessoriesCard = ({ bike }) => {
           <button
             type="button"
             onClick={handleAddToCart}
-            className="w-full bg-red-600 hover:bg-red-700 text-white font-bold uppercase text-xs tracking-widest py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-all active:scale-95 cursor-pointer"
+            className="w-full bg-red-600 hover:bg-red-700 text-white font-bold uppercase text-xs tracking-widest py-3 px-4  flex items-center justify-center gap-2 shadow-lg transition-all active:scale-95 cursor-pointer"
           >
             <ShoppingCart size={16} />
             Add To Cart

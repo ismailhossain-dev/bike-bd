@@ -16,7 +16,7 @@ function DetailsCard({ bike }) {
   };
 
   return (
-    <div className="sm:px-6 lg:px-12 max-w-7xl mx-auto mb-10 text-gray-100">
+    <div className="sm:px-6 lg:px-12 max-w-7xl mx-auto my-6 text-gray-100 ">
       <div className="bg-[#14161d] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* Background Glow Effect */}

@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import BikeCard from "./Cards/BikeCard";
 
@@ -17,8 +16,8 @@ const HomeBikesSection = ({ bikes = [] }) => {
     : bikes.filter((bike) => bike.brand?.toUpperCase() === selectedBrand);
 
   return (
-    <section className="bg-[#0a0a0a] py-16 px-4 sm:px-8 lg:px-12 border-b border-white/5">
-      <div className="max-w-7xl mx-auto lg:max-[1420px]">
+    <section className="bg-[#0a0a0a] py-16  border-b border-white/5 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-6 mb-10 items-center">
           
