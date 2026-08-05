@@ -8,6 +8,7 @@ import { authOptions } from "./api/auth/[...nextauth]/route";
 import HomeBikesSection from "@/components/HomeBikesSection";
 import HelpsFindBike from "@/components/Home/HelpsFindBike/HelpsFindBike";
 import OurProducts from "@/components/Home/OurProducts/OurProducts";
+import HomeContactSection from "@/components/Home/HomeContactSection/HomeContactSection";
 
 const Page = async () => {
   const session = await getServerSession(authOptions);
@@ -33,6 +34,9 @@ const Page = async () => {
 
       {/* Our Products */}
       <OurProducts/>
+
+      {/* Contact section */}
+      <HomeContactSection/>
 
       <FeaturesSection />
       <Footer />
