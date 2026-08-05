@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Eye, RefreshCw, Plus, X } from "lucide-react";
+import { Eye, X } from "lucide-react";
 import WishlistButton from "../buttons/WishlistButton/WishlistButton";
 import AddtoCart from "../buttons/AddToCart/AddtoCart";
 
@@ -59,12 +59,7 @@ const BikeCard = ({ bike }) => {
             >
               <Eye size={13} />
             </button>
-            <button className="w-7 h-7 flex items-center justify-center bg-white/5 hover:bg-red-600 text-gray-400 hover:text-white transition-colors rounded border border-white/10">
-              <RefreshCw size={13} />
-            </button>
-            <button className="w-7 h-7 flex items-center justify-center bg-white/5 hover:bg-red-600 text-gray-400 hover:text-white transition-colors rounded border border-white/10">
-              <Plus size={13} />
-            </button>
+           
           </div>
         </div>
 

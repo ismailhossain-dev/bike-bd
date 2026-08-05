@@ -17,7 +17,7 @@ const page = async({params}) => {
     return (
         <div>
             <Navbar/>
-            <DetailsCard/>
+            <DetailsCard bike={detailsData}/>
             <Footer/>
         </div>
     );

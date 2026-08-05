@@ -48,7 +48,7 @@ const Navbar = () => {
     <header className="w-full sticky top-0 z-50 bg-[#121212] text-white shadow-md border-b border-white/10 font-sans">
       {/* ------------------- ১. টপ বার (Top Bar) ------------------- */}
       <div className="hidden lg:block border-b border-white/10 bg-[#0e0e0e] py-2.5 text-xs text-gray-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4  flex items-center justify-between">
           {/* এড্রেস ও ইমেইল */}
           <div className="flex items-center space-x-6">
             <span className="tracking-wide">
