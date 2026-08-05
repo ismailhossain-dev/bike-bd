@@ -28,14 +28,11 @@ const OurBikeCard = ({ bike }) => {
     toast.success(`${name || "Item"} added to cart!`);
   };
 
-  const handleAddToWishlist = (e) => {
-    e.preventDefault(); // Prevents parent link navigation
-    toast.info(`${name || "Item"} added to wishlist!`);
-  };
+
 
   return (
     <Link
-      href={`/bikes/${_id || ""}`}
+      href={`/our-all-accessories/${_id || ""}`}
       className="group relative bg-[#121212] border border-white/10 rounded-lg overflow-hidden shadow-2xl hover:shadow-red-500/10 transition-all duration-300 flex flex-col justify-between block w-full"
     >
       {/* ================= IMAGE & FLOATING ICONS SECTION ================= */}
