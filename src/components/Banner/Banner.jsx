@@ -12,7 +12,7 @@ const Banner = () => {
     description:
       "Feel and enjoy the torque delivered by this boxer with every twist of your wrist. With Core Screen Sport, you now have this sportiness – in the truest sense of the word – at your fingertips.",
     buttonText: "LEARN MORE",
-    buttonLink: "/allbikes",
+    buttonLink: "/all-bikes",
   };
 
   return (

@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import WishlistButton from "../buttons/WishlistButton/WishlistButton";
 import AddtoCart from "../buttons/AddToCart/AddtoCart";
 
-const OurBikeCard = ({ bike }) => {
+const AccessoriesCard = ({ bike }) => {
   // console.log("bikeCard", bike);
 
   // Destructure properties safely from the bike prop
@@ -32,7 +32,7 @@ const OurBikeCard = ({ bike }) => {
 
   return (
     <Link
-      href={`/our-all-accessories/${_id || ""}`}
+      href={`/all-accessories/${_id || ""}`}
       className="group relative bg-[#121212] border border-white/10 rounded-lg overflow-hidden shadow-2xl hover:shadow-red-500/10 transition-all duration-300 flex flex-col justify-between block w-full"
     >
       {/* ================= IMAGE & FLOATING ICONS SECTION ================= */}
@@ -122,4 +122,4 @@ const OurBikeCard = ({ bike }) => {
   );
 };
 
-export default OurBikeCard;
+export default AccessoriesCard;

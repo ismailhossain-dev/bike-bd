@@ -226,7 +226,7 @@ const AboutPage = () => {
 
               <motion.div variants={fadeInUp} className="pt-2">
                 <Link
-                  href="/allbikes"
+                  href="/all-bikes"
                   className="inline-flex items-center gap-2 px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-widest transition-all rounded-md shadow-lg shadow-red-600/20 active:scale-95"
                 >
                   <span>Explore Collection</span>

@@ -11,7 +11,7 @@ export default function SortDropdown({ sortBy }) {
     params.set("sort", e.target.value);
     
     // পেজ রিলোড ছাড়া URL আপডেট করবে
-    router.push(`/allbikes?${params.toString()}`);
+    router.push(`/all-bikes?${params.toString()}`);
   };
 
   return (

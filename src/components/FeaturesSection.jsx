@@ -38,9 +38,9 @@ export const FeaturesSection = () => {
   return (
     <section className="bg-[#08090c] py-28 px-4 sm:px-8 lg:px-16 text-left relative overflow-hidden font-sans border-b border-white/10">
       {/* Background Ambient Glows & Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-      <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-red-600/15 blur-[160px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-orange-600/15 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 " />
+      <div className="absolute top-1/4 -left-20 w-[500px] h-[500px]  blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px]  blur-[160px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Content Section */}

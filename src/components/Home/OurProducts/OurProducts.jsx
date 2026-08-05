@@ -1,4 +1,5 @@
-import OurBikeCard from "@/components/Cards/OurBikeCard";
+
+import AccessoriesCard from "@/components/Cards/AccessoriesCard";
 import useAxiosSecure from "@/components/hooks/useAxiosSecure";
 import Link from "next/link";
 import React from "react";
@@ -23,11 +24,11 @@ const OurProducts = async () => {
         Our Products
       </h2>
 
-      <Link href="/our-all-accessories" className=" hover:underline duration-300 hover:text-red-500 uppercase">View all Products</Link>
+      <Link href="/all-accessories" className=" hover:underline duration-300 hover:text-red-500 uppercase">View all Products</Link>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {bikes.map((bike) => (
-          <OurBikeCard key={bike._id} bike={bike}></OurBikeCard>
+          <AccessoriesCard key={bike._id} bike={bike}></AccessoriesCard>
         ))}
       </div>
     </div>

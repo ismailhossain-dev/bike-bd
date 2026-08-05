@@ -139,7 +139,7 @@ const BikeCard = ({ bike }) => {
           </div>
 
           <Link
-            href={`/allbikes/${_id}`}
+            href={`/all-bikes/${_id}`}
             className="btn"
           >
             VIEW MORE
@@ -209,7 +209,7 @@ const BikeCard = ({ bike }) => {
                   <WishlistButton bike={bike} />
                 </div>
                 <Link
-                  href={`/allbikes/${_id}`}
+                  href={`/all-bikes/${_id}`}
                   className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold uppercase transition-colors"
                 >
                   Full Specs

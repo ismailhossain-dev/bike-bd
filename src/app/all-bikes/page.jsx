@@ -21,7 +21,7 @@ const Page = async ({ searchParams }) => {
 
   // API ফেচিং (Server Component direct async fetch)
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/allBikes?page=${currentPage}&limit=${itemsPerPage}`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/all-bikes?page=${currentPage}&limit=${itemsPerPage}`,
     { cache: "no-store" }
   );
 
@@ -129,7 +129,7 @@ const Page = async ({ searchParams }) => {
 
           {/* Search Bar */}
           <div className="mt-6 pt-6 border-t border-white/10">
-            <form action="/allbikes" method="GET" className="relative max-w-2xl w-full">
+            <form action="/all-bikes" method="GET" className="relative max-w-2xl w-full">
               {selectedBrand !== "ALL" && (
                 <input type="hidden" name="brand" value={selectedBrand} />
               )}
@@ -175,7 +175,7 @@ const Page = async ({ searchParams }) => {
 
                 {(selectedBrand !== "ALL" || searchQuery || maxPriceParam || sortBy !== "default") && (
                   <Link
-                    href="/allbikes"
+                    href="/all-bikes"
                     className="text-[11px] font-bold text-red-500 hover:text-red-400 flex items-center gap-1 transition"
                   >
                     <RotateCcw size={12} /> Reset
@@ -188,7 +188,7 @@ const Page = async ({ searchParams }) => {
                 {finalBrands.map((brandName) => {
                   const isActive = selectedBrand.toLowerCase() === brandName.toLowerCase();
                   
-                  const brandUrl = `/allbikes?brand=${encodeURIComponent(brandName)}${
+                  const brandUrl = `/all-bikes?brand=${encodeURIComponent(brandName)}${
                     searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : ""
                   }${sortBy !== "default" ? `&sort=${sortBy}` : ""}`;
 
@@ -263,7 +263,7 @@ const Page = async ({ searchParams }) => {
                   No products matched your selected brand or search terms.
                 </p>
                 <Link
-                  href="/allbikes"
+                  href="/all-bikes"
                   className="inline-block mt-5 px-6 py-3 bg-red-600 text-white text-xs font-black uppercase tracking-wider rounded-lg hover:bg-red-700 transition"
                 >
                   Clear All Filters
@@ -278,7 +278,7 @@ const Page = async ({ searchParams }) => {
         {totalPages > 1 && (
           <div className="flex justify-center items-center gap-2 border-t border-white/10 pt-8 mt-12">
             {pageNumbers.map((pageNumber) => {
-              const pageUrl = `/allbikes?page=${pageNumber}${
+              const pageUrl = `/all-bikes?page=${pageNumber}${
                 selectedBrand !== "ALL" ? `&brand=${selectedBrand}` : ""
               }${searchQuery ? `&search=${searchQuery}` : ""}${
                 sortBy !== "default" ? `&sort=${sortBy}` : ""

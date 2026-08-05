@@ -7,7 +7,7 @@ const ManageBikesTable = ({ bike, index, onDeleteSuccess }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleManageDelete = async (id) => {
-    const res = await fetch(`/api/allBikes/${id}`, {
+    const res = await fetch(`/api/all-bikes/${id}`, {
       method: "DELETE",
     });
 

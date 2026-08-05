@@ -33,8 +33,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "HOME PAGE", path: "/" },
-    { name: "SHOP", path: "/allbikes" },
-    { name: "Accessories", path: "/our-all-accessories" },
+    { name: "SHOP", path: "/all-bikes" },
+    { name: "Accessories", path: "/all-accessories" },
     { name: "ABOUT US", path: "/about" },
     { name: "CONTACT", path: "/contact" },
     // { name: "INVENTORY", path: "/inventory" },
@@ -91,7 +91,7 @@ const Navbar = () => {
         {/* মাঝের মূল নেভিগেশন লিংকসমূহ (Desktop) */}
         <nav className="hidden xl:flex items-center space-x-7 px-6 py-4">
           {navLinks.map((link) => {
-            const isActive = pathName === link.path;
+            const isActive  = pathName === link.path;
             return (
               <Link
                 key={link.path}

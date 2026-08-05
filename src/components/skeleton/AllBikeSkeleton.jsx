@@ -1,6 +1,6 @@
 import React from "react";
 
-const AllBikeSkeleton = () => {
+const all-bikeskeleton = () => {
   return (
     <div className="animate-pulse bg-white rounded-2xl shadow-md overflow-hidden">
       {/* Image Skeleton */}
@@ -32,4 +32,4 @@ const AllBikeSkeleton = () => {
   );
 };
 
-export default AllBikeSkeleton;
+export default all-bikeskeleton;

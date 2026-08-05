@@ -56,7 +56,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm font-medium">
               {[
                 { name: "About Us", href: "/about" },
-                { name: "Our Bikes", href: "/allbikes" },
+                { name: "Our Bikes", href: "/all-bikes" },
                 { name: "Featured Bike", href: "/feature" },
                 { name: "Contact", href: "/contact" },
               ].map((item) => (

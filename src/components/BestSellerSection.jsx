@@ -23,7 +23,7 @@ export const BestSellerSection = () => {
             </h2>
           </div>
           <Link
-            href="/allbikes"
+            href="/all-bikes"
             className="text-zinc-600 dark:text-zinc-400 hover:text-orange-600 dark:hover:text-orange-500 font-semibold transition-colors flex items-center gap-2 group"
           >
             View All Collection
@@ -53,7 +53,7 @@ export const BestSellerSection = () => {
           </div>
 
           <Link
-            href="/allbikes"
+            href="/all-bikes"
             className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-10 rounded-2xl transition-all shadow-xl shadow-orange-500/20 active:scale-95 w-auto text-center"
           >
             Explore Shop
@@ -97,7 +97,7 @@ export const BestSellerSection = () => {
 
             <div className="flex items-center gap-6 justify-center md:justify-start">
               <Link
-                href="/allbikes"
+                href="/all-bikes"
                 className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-10 rounded-2xl transition-all shadow-xl shadow-orange-500/20 active:scale-95"
               >
                 Pre-Order Now
