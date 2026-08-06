@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Eye, ShoppingCart, Star } from "lucide-react";
+import {  Eye, ShoppingCart, Star } from "lucide-react";
 import { toast } from "react-toastify";
 import WishlistButton from "../buttons/WishlistButton/WishlistButton";
 import AddtoCart from "../buttons/AddToCart/AddtoCart";
@@ -56,12 +56,12 @@ const AccessoriesCard = ({ bike }) => {
 
         <AddtoCart bike={bike}/>
           {/* Quick View Details Button */}
-          <span
+          {/* <span
             className="w-10 h-10 bg-white text-black hover:bg-red-600  rounded-full flex items-center justify-center border border-white/10 backdrop-blur-md shadow-lg transition-transform hover:scale-110 cursor-pointer"
             aria-label="Quick View Details"
           >
             <Eye size={16} />
-          </span>
+          </span> */}
         </div>
 
         {/* Category Badge */}
