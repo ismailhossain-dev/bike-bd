@@ -119,9 +119,9 @@ const Navbar = () => {
             className="relative text-gray-200 hover:text-red-500 transition-colors p-1"
           >
             <ShoppingCart size={20} />
-            <span className="absolute -top-1.5 -right-2.5 bg-red-600 text-white text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center">
+            {/* <span className="absolute -top-1.5 -right-2.5 bg-red-600 text-white text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center">
               0
-            </span>
+            </span> */}
           </Link>
 
           {/* ইউজার প্রোফাইল বা লগইন */}

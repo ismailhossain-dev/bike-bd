@@ -1,9 +1,15 @@
 "use client";
+import { useSession } from "next-auth/react";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 const OrderButton = ({ bike, userEmail }) => {
   const [loading, setLoading] = useState(false);
+  const { data: session, status } = useSession();
+  
+    if (status === "loading") {
+    return <p>Loading....</p>;
+  }
 
   const handlePayment = async () => {
     setLoading(true);
@@ -19,7 +25,7 @@ const OrderButton = ({ bike, userEmail }) => {
               quantity: 1 
             }
           ],
-          email: userEmail || "user.customer@example.com" // ডিফল্ট বা ইউজারের রিয়েল ইমেইল
+          email: session.user?.email || "user.customer@example.com" // ডিফল্ট বা ইউজারের রিয়েল ইমেইল
         })
       });
 
