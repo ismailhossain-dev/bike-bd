@@ -7,7 +7,7 @@ const GoogleLogin = () => {
         <button
           type="button" // Form submit jeno na hoy seijonno type button deya hoyeche
           onClick={() => signIn("google", { callbackUrl: "/" })} // Click korle Google login shuru hobe ebong pore home page a niye jabe
-          className="mt-4 flex w-full items-center justify-center gap-3 rounded-xl border border-gray-200 bg-white px-5 py-3.5 text-sm font-bold text-gray-700 shadow-sm transition-all duration-300 hover:bg-gray-50 hover:border-gray-300 active:scale-[0.98]"
+          className="mt-4 flex w-full items-center justify-center gap-3 rounded-xl border border-gray-200 bg-white px-5 py-3.5 text-sm font-bold text-gray-700 shadow-sm transition-all duration-300 hover:bg-gray-50 hover:border-gray-300 active:scale-[0.98] cursor-pointer"
           // Light theme er sathe milie premium white background ar soft gray border deya hoyeche
         >
           <FcGoogle size={22} className="shrink-0" /> 

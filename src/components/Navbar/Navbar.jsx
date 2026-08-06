@@ -37,18 +37,13 @@ const Navbar = () => {
     { name: "Accessories", path: "/all-accessories" },
     { name: "ABOUT US", path: "/about" },
     { name: "CONTACT", path: "/contact" },
-    // { name: "INVENTORY", path: "/inventory" },
-    // { name: "BLOG", path: "/blog" },
-
-    // { name: "EVENTS", path: "/events" },
-    // { name: "PAGES", path: "/pages" },
   ];
 
   return (
     <header className="w-full sticky top-0 z-50 bg-[#121212] text-white shadow-md border-b border-white/10 font-sans">
       {/* ------------------- ১. টপ বার (Top Bar) ------------------- */}
       <div className="hidden lg:block border-b border-white/10 bg-[#0e0e0e] py-2.5 text-xs text-gray-300">
-        <div className="max-w-7xl mx-auto px-4  flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
           {/* এড্রেস ও ইমেইল */}
           <div className="flex items-center space-x-6">
             <span className="tracking-wide">
@@ -56,7 +51,7 @@ const Navbar = () => {
             </span>
             <span className="text-gray-600">|</span>
             <a
-              href="mailto:info@autobike.com"
+              href="mailto:ismil.dev69k@gmil.com"
               className="hover:text-orange-500 transition-colors font-medium"
             >
               ismil.dev69k@gmil.com
@@ -91,7 +86,7 @@ const Navbar = () => {
         {/* মাঝের মূল নেভিগেশন লিংকসমূহ (Desktop) */}
         <nav className="hidden xl:flex items-center space-x-7 px-6 py-4">
           {navLinks.map((link) => {
-            const isActive  = pathName === link.path;
+            const isActive = pathName === link.path;
             return (
               <Link
                 key={link.path}
@@ -108,20 +103,12 @@ const Navbar = () => {
 
         {/* ডানপাশের আইকনসমূহ ও ইউজার প্রোফাইল */}
         <div className="flex items-center space-x-5 px-4 sm:px-6 lg:px-8">
-          {/* সার্চ বাটন */}
-          {/* <button className="text-gray-200 hover:text-red-500 transition-colors p-1">
-            <Search size={19} />
-          </button> */}
-
-          {/* কার্ট আইকন (Badge সহ) */}
+          {/* কার্ট আইকন */}
           <Link
             href="/dashboard/my-cart"
             className="relative text-gray-200 hover:text-red-500 transition-colors p-1"
           >
             <ShoppingCart size={20} />
-            {/* <span className="absolute -top-1.5 -right-2.5 bg-red-600 text-white text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center">
-              0
-            </span> */}
           </Link>
 
           {/* ইউজার প্রোফাইল বা লগইন */}
@@ -191,11 +178,10 @@ const Navbar = () => {
             </div>
           ) : (
             <Link
-              href="/register"
-              className="text-gray-200 hover:text-red-500 transition-colors p-1 uppercase btn"
+              href="/login"
+              className="text-gray-200 hover:text-red-500 transition-colors p-1 uppercase btn text-xs font-bold"
             >
-              {/* <User size={20} /> */}
-              Register
+              Login
             </Link>
           )}
 

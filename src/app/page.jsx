@@ -10,9 +10,10 @@ import HelpsFindBike from "@/components/Home/HelpsFindBike/HelpsFindBike";
 import OurProducts from "@/components/Home/OurProducts/OurProducts";
 import HomeContactSection from "@/components/Home/HomeContactSection/HomeContactSection";
 
-const Page = async () => {
-  const session = await getServerSession(authOptions);
 
+const Page = async () => {
+  // const session = await getServerSession(authOptions);
+ 
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`, {
     cache: "no-store",
   });

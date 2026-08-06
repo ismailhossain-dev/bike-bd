@@ -2,35 +2,45 @@ import React from "react";
 
 const BikeCardSkeleton = () => {
   return (
-    <div className="flex flex-col bg-white border border-gray-100 rounded-3xl p-4 h-full animate-pulse shadow-[0_20px_50px_rgba(0,0,0,0.01)]">
+    <div className="bg-[#121212] border border-white/10 rounded-lg overflow-hidden flex flex-col relative animate-pulse">
       
-      {/* ১. ইমেজ কন্টেইনার স্কেলেটন */}
-      <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gray-200" />
+      {/* ১. টপ টাইটেল ও অ্যাকশন আইকন স্কেলিটন */}
+      <div className="flex items-center justify-between p-4 border-b border-white/5 bg-[#161616]">
+        {/* টাইটেল বার */}
+        <div className="h-5 bg-white/10 rounded w-3/5"></div>
+        {/* মিনিমাল আইকন */}
+        <div className="w-7 h-7 bg-white/10 rounded border border-white/10"></div>
+      </div>
 
-      {/* ২. টেক্সট কন্টেন্ট সেকশন স্কেলেটন */}
-      <div className="flex flex-1 flex-col pt-5 px-1 items-center text-center">
-        
-        {/* ক্যাটাগরি */}
-        <div className="h-3 w-16 bg-gray-200 rounded-md mb-2" />
+      {/* ২. ইমেজ সেকশন স্কেলিটন */}
+      <div className="relative aspect-[16/10] w-full bg-black/40 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
+      </div>
 
-        {/* বাইকের নাম (২ লাইনের জন্য ২টা বার) */}
-        <div className="h-4 w-5/6 bg-gray-200 rounded-md mb-2" />
-        <div className="h-4 w-2/3 bg-gray-200 rounded-md" />
+      {/* ৩. স্পেসিফিকেশন গ্রিড স্কেলিটন */}
+      <div className="p-4 grid grid-cols-2 gap-y-4 gap-x-2 border-t border-white/5 bg-[#121212]">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="flex items-center gap-2">
+            <div className="w-6 h-6 bg-white/10 rounded-full flex-shrink-0"></div>
+            <div className="space-y-1.5 w-full">
+              <div className="h-3.5 bg-white/10 rounded w-4/5"></div>
+              <div className="h-2.5 bg-white/5 rounded w-2/5"></div>
+            </div>
+          </div>
+        ))}
+      </div>
 
-        {/* ছোট ডিভাইডার লাইন */}
-        <div className="w-8 h-[1.5px] bg-gray-200 my-4" />
-
-        {/* ৪. স্টার রেটিং এবং দাম */}
-        <div className="mt-auto flex flex-col items-center gap-2 w-full">
-          
-          {/* রেটিং স্টার বার */}
-          <div className="h-3 w-20 bg-gray-200 rounded-md" />
-
-          {/* দাম */}
-          <div className="h-5 w-24 bg-gray-300 rounded-md mt-1" />
+      {/* ৪. প্রাইস এবং বাটন স্কেলিটন */}
+      <div className="mt-auto p-4 border-t border-white/5 bg-[#161616] flex items-center justify-between gap-2">
+        <div className="space-y-1.5 w-1/3">
+          <div className="h-2 bg-white/5 rounded w-full"></div>
+          <div className="h-5 bg-white/10 rounded w-4/5"></div>
         </div>
 
+        {/* 'VIEW MORE' বাটনের জন্য */}
+        <div className="h-9 bg-white/10 rounded w-24"></div>
       </div>
+
     </div>
   );
 };
