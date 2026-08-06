@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Star, CheckCircle2, Shield, Zap, Sparkles, ShoppingCart } from 'lucide-react';
+import OrderButton from '@/components/OrderButton';
 
 function DetailsCard({ bike }) {
     console.log("hello", bike)
@@ -110,13 +111,7 @@ function DetailsCard({ bike }) {
             )}
 
             {/* Order Button */}
-            <button 
-                onClick={handleOrder}
-                className="w-full flex items-center justify-center gap-3 bg-red-600 hover:bg-red-700 text-white font-black uppercase text-sm py-4 rounded-2xl transition-colors duration-300 shadow-lg shadow-red-600/20 active:scale-[0.98]"
-            >
-                <ShoppingCart className="w-5 h-5" />
-                Place Your Order Now
-            </button>
+           <OrderButton/>
           </div>
 
           {/* Extra Guarantee/Badge Footer inside card */}

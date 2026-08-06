@@ -13,6 +13,10 @@ const OrderButton = ({ bike, userEmail }) => {
 
   const handlePayment = async () => {
     setLoading(true);
+    if(!session){
+      setLoading(false)
+      return toast.warn("Plase login first")
+    }
     try {
       const res = await fetch("/api/create-checkout-session", {
         method: "POST",
