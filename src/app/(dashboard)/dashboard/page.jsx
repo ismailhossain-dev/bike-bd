@@ -4,8 +4,7 @@ import {
   TrendingUp,
   Bike,
   Zap,
-  ChevronRight,
-  ShieldCheck,
+
   Wrench,
   Clock,
   Compass,
@@ -71,27 +70,7 @@ const DashboardPage = () => {
     },
   ];
 
-  // Fleet Asset Data
-  const myFleet = [
-    {
-      id: 1,
-      model: "Yamaha R15 V4",
-      type: "Sports Category",
-      mileage: "4,200 km",
-      status: "Service Required",
-      statusColor: "text-amber-400 bg-amber-400/10 border-amber-400/20",
-      path: "/dashboard/garage/1",
-    },
-    {
-      id: 2,
-      model: "Honda CBR 150R",
-      type: "Street Sports",
-      mileage: "1,850 km",
-      status: "Operational",
-      statusColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
-      path: "/dashboard/garage/2",
-    },
-  ];
+ 
 
   return (
     <main className="min-h-screen bg-[#0a0c10] text-slate-100  font-sans selection:bg-rose-600 selection:text-white">
@@ -212,57 +191,7 @@ const DashboardPage = () => {
           <OrdersChart />
         </div>
 
-        {/* --- Fleet Assets (Clickable Cards) --- */}
-        <div className="space-y-3">
-          <div className="flex items-center justify-between px-1">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-rose-500" />
-              <h2 className="text-xs font-black uppercase tracking-[0.15em] text-slate-400">
-                Registered Fleet Assets (Garage)
-              </h2>
-            </div>
-            <Link
-              href="/dashboard/garage"
-              className="text-xs font-semibold text-rose-400 hover:text-rose-300 flex items-center gap-1 transition-colors"
-            >
-              <span>Full Manifest</span>
-              <ChevronRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {myFleet.map((bike) => (
-              <Link
-                key={bike.id}
-                href={bike.path}
-                className="group bg-[#12151e] border border-white/[0.06] hover:border-rose-500/40 p-5 rounded-2xl flex items-center justify-between shadow-lg transition-all duration-200 cursor-pointer"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-500 group-hover:scale-105 transition-transform">
-                    <Bike className="w-6 h-6" />
-                  </div>
-                  <div className="space-y-0.5">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-rose-400">
-                      {bike.type}
-                    </span>
-                    <h4 className="text-sm font-bold text-white group-hover:text-rose-400 transition-colors">{bike.model}</h4>
-                    <p className="text-xs text-slate-400 flex items-center gap-1 font-mono">
-                      <Compass className="w-3 h-3 text-slate-500" /> Odometer: {bike.mileage}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${bike.statusColor} font-mono`}>
-                    {bike.status}
-                  </span>
-                  <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-white transition-colors" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-
+       
       
 
       </div>
