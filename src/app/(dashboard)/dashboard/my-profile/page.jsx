@@ -258,7 +258,7 @@ const DashboardMyProfilePage = () => {
           {/* Dashboard Quick Navigation Buttons */}
           <div className="grid grid-cols-3 gap-3">
             <Link
-              href="/dashboard/my-orders"
+              href="/dashboard/my-order"
               className="flex flex-col items-center justify-center p-3.5 rounded-2xl bg-[#141620] border border-white/10 hover:border-red-500/40 text-gray-400 hover:text-white transition-all group cursor-pointer"
             >
               <ShoppingBag

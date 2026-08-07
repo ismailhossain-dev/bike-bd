@@ -34,7 +34,7 @@ const Banner = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
 
       {/* ৩. টেক্সট কন্টেন্ট (ছবি অনুযায়ী বাম-ঘেঁষা লেআউট) */}
-      <div className="absolute inset-0 flex items-center justify-start px-6 sm:px-12 md:px-20 lg:px-28 z-10 w-full max-w-[1420px] mx-auto">
+      <div className="absolute inset-0 flex items-center justify-start  mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full max-w-[1420px] mx-auto">
         <div className="max-w-2xl space-y-4 sm:space-y-6 text-left">
           
           {/* লাল রঙের ছোট ট্যাগলাইন */}

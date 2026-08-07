@@ -17,6 +17,7 @@ import {
   Linkedin,
   Twitter,
 } from "lucide-react";
+import Container from "../Container/Container";
 
 // Behance Custom Icon
 const BehanceIcon = () => (
@@ -77,9 +78,10 @@ const Navbar = () => {
       </div>
 
       {/* ------------------- ২. মেইন নেভিগেশন বার ------------------- */}
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <Container>
+        <div className="  flex items-center justify-between">
         {/* লোগো সেকশন */}
-        <div className="flex-shrink-0 px-4 sm:px-6 lg:px-8 py-3 lg:border-r border-white/10 flex items-center justify-center">
+        <div className="flex-shrink-0  py-3 lg:border-r border-white/10 flex items-center justify-center">
           <Logo />
         </div>
 
@@ -102,11 +104,11 @@ const Navbar = () => {
         </nav>
 
         {/* ডানপাশের আইকনসমূহ ও ইউজার প্রোফাইল */}
-        <div className="flex items-center space-x-5 px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center   ">
           {/* কার্ট আইকন */}
           <Link
             href="/dashboard/my-cart"
-            className="relative text-gray-200 hover:text-red-500 transition-colors p-1"
+            className="relative text-gray-200 hover:text-red-500 transition-colors p-1 mr-2"
           >
             <ShoppingCart size={20} />
           </Link>
@@ -194,6 +196,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+      </Container>
 
       {/* ------------------- ৩. মোবাইল নেভিগেশন সাইডবার ------------------- */}
       <div

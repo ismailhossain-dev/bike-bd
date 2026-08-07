@@ -12,12 +12,14 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import Logo from "../Logo/Logo";
+import Container from "../Container/Container";
 
 const Footer = () => {
   return (
     <footer className="bg-[#0a0a0a] border-t border-white/10 text-gray-400 font-sans">
       {/* Main content */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
+     <Container>
+      <div className="mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           
           {/* Brand Info */}
@@ -162,6 +164,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      </Container> 
     </footer>
   );
 };

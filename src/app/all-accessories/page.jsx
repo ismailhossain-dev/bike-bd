@@ -132,7 +132,7 @@ const AccessoriesPage = async ({ searchParams }) => {
 
                   {(selectedBrand !== "ALL" || searchQuery) && (
                     <Link
-                      href="/accessories"
+                      href="/all-accessories"
                       className="text-[11px] font-bold text-red-500 hover:text-red-400 flex items-center gap-1 transition"
                     >
                       <RotateCcw size={12} /> Reset
@@ -145,7 +145,7 @@ const AccessoriesPage = async ({ searchParams }) => {
                   {finalBrands.map((brandName) => {
                     const isActive = selectedBrand.toLowerCase() === brandName.toLowerCase();
                     
-                    const brandUrl = `/accessories?brand=${encodeURIComponent(brandName)}${
+                    const brandUrl = `/all-accessories?brand=${encodeURIComponent(brandName)}${
                       searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : ""
                     }`;
 

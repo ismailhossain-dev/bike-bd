@@ -170,7 +170,8 @@ const AboutPage = () => {
         </section>
 
         {/* --- SECTION 2: ABOUT DETAILS & STATS --- */}
-        <section className="py-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
+        <Container>
+          <section className="py-20 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Image Overlay Box */}
@@ -260,10 +261,12 @@ const AboutPage = () => {
             ))}
           </motion.div>
         </section>
+        </Container>
 
         {/* --- NEW SECTION: OUR CORE VALUES / WHY CHOOSE US --- */}
         <section className="py-20 px-4 sm:px-6 lg:px-12 bg-[#0e0f14] border-t border-white/10">
-          <div className="max-w-7xl mx-auto space-y-12">
+          <Container>
+            <div className=" space-y-12">
             <motion.div 
               className="text-center max-w-2xl mx-auto space-y-3"
               initial="hidden"
@@ -307,6 +310,7 @@ const AboutPage = () => {
               })}
             </motion.div>
           </div>
+          </Container>
         </section>
 
         {/* --- SECTION 4: VIDEO BANNER HERO --- */}
@@ -352,7 +356,8 @@ const AboutPage = () => {
         </section>
 
         {/* --- SECTION 5: MEET OUR TEAM --- */}
-        <section className="py-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
+       <Container>
+         <section className="py-20  mx-auto">
           <motion.div 
             className="mb-12"
             initial="hidden"
@@ -398,6 +403,7 @@ const AboutPage = () => {
             ))}
           </motion.div>
         </section>
+       </Container>
 
         {/* --- NEW SECTION: FREQUENTLY ASKED QUESTIONS --- */}
         <section className="py-20 px-4 sm:px-6 lg:px-12 bg-[#0e0f14] border-t border-white/10">
@@ -459,8 +465,9 @@ const AboutPage = () => {
         </section>
 
         {/* --- SECTION 6: TESTIMONIALS & BRANDS --- */}
-        <section className="py-20 px-4 sm:px-6 lg:px-12 border-t border-white/10">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-20  border-t border-white/10">
+        <Container>
+  <div className="">
             
             <motion.div 
               className="flex items-center justify-between mb-12"
@@ -540,6 +547,8 @@ const AboutPage = () => {
             </motion.div>
 
           </div>
+        </Container>
+        
         </section>
 
       </main>

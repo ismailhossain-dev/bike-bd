@@ -16,6 +16,7 @@ import {
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
+import Container from "@/components/Container/Container";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -109,8 +110,9 @@ const ContactPage = () => {
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#0b0c10]/40 to-[#0b0c10]" />
   </div>
 
-  <motion.div 
-    className="max-w-7xl mx-auto text-center space-y-3 relative z-10"
+<Container>
+    <motion.div 
+    className=" text-center space-y-3 relative z-10"
     initial="hidden"
     animate="visible"
     variants={staggerContainer}
@@ -129,10 +131,12 @@ const ContactPage = () => {
       Have questions about our motorbikes, custom tuning, or services? Reach out to us anytime and our team will get back to you shortly.
     </motion.p>
   </motion.div>
+</Container>
 </section>
 
-        {/* --- SECTION 2: CONTACT CARDS --- */}
-        <section className="py-16 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
+       <Container>
+         {/* --- SECTION 2: CONTACT CARDS --- */}
+        <section className="py-16  mx-auto">
           <motion.div 
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
             initial="hidden"
@@ -175,7 +179,7 @@ const ContactPage = () => {
         </section>
 
         {/* --- SECTION 3: FORM & MAP SECTION --- */}
-        <section id="form" className="py-12 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
+        <section id="form" className="py-12 ">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
             {/* Left Column: Contact Form */}
@@ -321,6 +325,7 @@ const ContactPage = () => {
 
           </div>
         </section>
+       </Container>
 
       </main>
 

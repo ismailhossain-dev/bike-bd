@@ -20,7 +20,7 @@ function HomeContactSection() {
         {/* Dark Overlay for Better Text Readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent" />
 
-        <div className='absolute inset-0 z-10 flex flex-col justify-center py-28 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto'>
+        <div className='absolute inset-0 z-10 flex flex-col justify-center py-28 px-4 sm:px-8 lg:px-16 max-w-7xl lg:max-w-[1460px] mx-auto'>
           
           <div className="max-w-2xl">
             {/* Heading */}
