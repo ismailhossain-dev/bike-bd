@@ -27,7 +27,7 @@ const DashboardPage = () => {
       subText: "View order history",
       icon: <TrendingUp className="w-5 h-5 text-emerald-400" />,
       badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-      path: "/dashboard/my-orders",
+      path: "/dashboard/my-order",
     },
     {
       label: "Wishlist Garage",
@@ -58,7 +58,7 @@ const DashboardPage = () => {
       desc: "Verification and logistics preparation underway",
       icon: <Clock className="w-5 h-5 text-amber-400" />,
       badgeBg: "bg-amber-400/10 text-amber-400 border-amber-400/20",
-      path: "/dashboard/my-orders?status=pending",
+      path: "/dashboard/my-order?status=pending",
     },
     {
       title: "Fulfilled Deliveries",
@@ -67,7 +67,7 @@ const DashboardPage = () => {
       desc: "Successfully deployed to user garage",
       icon: <CheckCircle2 className="w-5 h-5 text-emerald-400" />,
       badgeBg: "bg-emerald-400/10 text-emerald-400 border-emerald-400/20",
-      path: "/dashboard/my-orders?status=delivered",
+      path: "/dashboard/my-order?status=delivered",
     },
   ];
 
