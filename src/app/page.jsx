@@ -1,4 +1,4 @@
-import Banner from "@/components/Banner/Banner";
+import Banner from "@/components/Home/Banner/Banner";
 
 import { FeaturesSection } from "@/components/FeaturesSection";
 import Footer from "@/components/Footer/Footer";

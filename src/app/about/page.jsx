@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import Container from "@/components/Container/Container";
 
 const AboutPage = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -150,8 +151,9 @@ const AboutPage = () => {
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#0b0c10]/40 to-[#0b0c10]" />
           </div>
 
-          <motion.div 
-            className="max-w-7xl mx-auto text-center relative z-10 space-y-4"
+         <Container>
+           <motion.div 
+            className=" text-center relative z-10 space-y-4"
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
@@ -164,6 +166,7 @@ const AboutPage = () => {
             
             <h1 className=" text-3xl md:text-5xl font-bold">ABOUT US</h1>
           </motion.div>
+         </Container>
         </section>
 
         {/* --- SECTION 2: ABOUT DETAILS & STATS --- */}

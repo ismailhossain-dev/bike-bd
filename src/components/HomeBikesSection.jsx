@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import BikeCard from "./Cards/BikeCard";
+import Container from "./Container/Container";
 
 const HomeBikesSection = ({ bikes = [] }) => {
   const [selectedBrand, setSelectedBrand] = useState("ALL");
@@ -16,7 +17,8 @@ const HomeBikesSection = ({ bikes = [] }) => {
     : bikes.filter((bike) => bike.brand?.toUpperCase() === selectedBrand);
 
   return (
-    <section className="bg-[#0a0a0a] py-16  border-b border-white/5 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+   <Container>
+     <section className="bg-[#0a0a0a] py-16  border-b border-white/5 ">
       <div className="">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-6 mb-10 items-center">
@@ -49,7 +51,7 @@ const HomeBikesSection = ({ bikes = [] }) => {
         </div>
 
         {filteredBikes.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {filteredBikes.map((bike) => (
               <BikeCard key={bike._id || bike.name} bike={bike} />
             ))}
@@ -62,6 +64,7 @@ const HomeBikesSection = ({ bikes = [] }) => {
 
       </div>
     </section>
+   </Container>
   );
 };
 

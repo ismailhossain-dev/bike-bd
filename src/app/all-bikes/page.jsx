@@ -6,6 +6,7 @@ import Link from "next/link";
 import React from "react";
 import { Search, RotateCcw, Compass, SlidersHorizontal, Sparkles, ShieldCheck, Tag } from "lucide-react";
 import SortDropdown from "@/components/SortDropdown/SortDropdown";
+import Container from "@/components/Container/Container";
 
 const Page = async ({ searchParams }) => {
   const resolvedSearchParams = await searchParams;
@@ -90,7 +91,8 @@ const Page = async ({ searchParams }) => {
     <div className="bg-[#0b0c10] text-gray-100 min-h-screen flex flex-col justify-between">
       <Navbar />
 
-      <main className="container mx-auto my-6 md:my-10 px-4 sm:px-6 lg:px-8 flex-grow max-w-7xl  lg:max-[1420px]">
+     <Container>
+       <main className="container mx-auto my-6 ]">
         
         {/* --- Header Banner --- */}
         <div className="bg-gradient-to-r from-[#121212] via-[#1a1a1a] to-[#121212] rounded-2xl p-6 sm:p-10 mb-8 border border-white/10 relative overflow-hidden shadow-2xl">
@@ -248,7 +250,7 @@ const Page = async ({ searchParams }) => {
 
             {/* Bike Grid */}
             {filteredBikes.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                 {filteredBikes.map((bike) => (
                   <BikeCard key={bike._id} bike={bike} />
                 ))}
@@ -302,6 +304,7 @@ const Page = async ({ searchParams }) => {
         )}
 
       </main>
+     </Container>
 
       <Footer />
     </div>

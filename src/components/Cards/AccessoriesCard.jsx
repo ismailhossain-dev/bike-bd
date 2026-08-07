@@ -7,9 +7,14 @@ import {  Eye, ShoppingCart, Star } from "lucide-react";
 import { toast } from "react-toastify";
 import WishlistButton from "../buttons/WishlistButton/WishlistButton";
 import AddtoCart from "../buttons/AddToCart/AddtoCart";
+import { useSession } from "next-auth/react";
 
 const AccessoriesCard = ({ bike }) => {
   // console.log("bikeCard", bike);
+  const {data: session , status} = useSession()
+  if(status==="loading"){
+    return <p>Loading...</p>
+  }
 
   // Destructure properties safely from the bike prop
   const {
@@ -25,6 +30,9 @@ const AccessoriesCard = ({ bike }) => {
   // Action handlers
   const handleAddToCart = (e) => {
     e.preventDefault(); // Prevents parent link navigation
+    if(!session){
+     return toast.warn("Plase login first")
+    }
     toast.success(`${name || "Item"} added to cart!`);
   };
 
@@ -69,9 +77,7 @@ const AccessoriesCard = ({ bike }) => {
           {category || "Bike"}
         </span>
 
-        {/* ================= ADD TO CART BUTTON OVERLAY: 
-            - Mobile/SM: Always visible 
-            - Desktop/MD+: Slide up / Fade in on hover (md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0) ================= */}
+        {/* Add to Cart button */}
         <div className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-all duration-300 opacity-100 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0">
           <button
             type="button"
