@@ -21,17 +21,17 @@ export async function POST(req) {
     return NextResponse.json({ error: `Webhook Error: ${err.message}` }, { status: 400 });
   }
 
-  // পেমেন্ট সফল হওয়ার ইভেন্ট হ্যান্ডেল করা
+
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
 
     try {
-      // লক্ষ্য করুন: এখানে dbConnect("orders") এর আগে অবশ্যই await দিতে হবে
+    
       const ordersCollection = await dbConnect("orders");
 
       await ordersCollection.insertOne({
         customerEmail: session.customer_email,
-        amountTotal: session.amount_total / 100, // সেন্ট থেকে ডলারে রূপান্তর
+        amountTotal: session.amount_total / 100,
         paymentIntentId: session.payment_intent,
         paymentStatus: session.payment_status,
         productDetails: session.metadata?.productNames || "N/A",

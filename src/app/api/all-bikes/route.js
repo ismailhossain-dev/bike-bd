@@ -1,13 +1,11 @@
 import { dbConnect } from "@/lib/dbConnect";
 import { NextResponse } from "next/server";
-//ekane amra pagination er kaj ta korechi
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const page = Number(searchParams.get("page")) || 1;
     const limit = Number(searchParams.get("limit")) || 5;
 
-    // কতগুলো ডেটা স্কিপ করতে হবে তার হিসাব
     const skip = (page - 1) * limit;
 
     const collection = await dbConnect("bikeData");

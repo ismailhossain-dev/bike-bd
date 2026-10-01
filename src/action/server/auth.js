@@ -4,12 +4,9 @@ import { dbConnect } from "@/lib/dbConnect";
 import bcrypt from "bcryptjs";
 import { ObjectId } from "mongodb";
 
-//postUser ta Register user korsi er value gola ekane payload hisabe pabe
-export const postUser = async (payload) => {
-  //payload ta asbe register form hit korle
-  //   console.log(payload);
 
-  //hasPassword convert
+export const postUser = async (payload) => {
+
   const hashPassword = await bcrypt.hash(payload.password, 10);
 
   const newUser = {

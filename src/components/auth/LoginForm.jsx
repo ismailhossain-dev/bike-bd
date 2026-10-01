@@ -24,6 +24,7 @@ const LoginForm = () => {
 
     const email = e.target.email.value;
     const password = e.target.password.value;
+    // console.log("email , password", email, password)
 
     try {
       const res = await signIn("credentials", {
@@ -216,7 +217,7 @@ const LoginForm = () => {
               {/* Register Redirect Navigation */}
               <motion.div variants={fadeInUp} className="mt-8 text-center pt-6 border-t border-white/10">
                 <p className="text-xs text-gray-400 font-medium">
-                  Don't have an active account?
+                  Dont have an active account?
                   <Link
                     href="/register"
                     className="ml-2 text-red-500 font-extrabold uppercase tracking-wider hover:text-red-400 transition-colors underline underline-offset-4"

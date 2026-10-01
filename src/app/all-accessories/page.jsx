@@ -9,11 +9,9 @@ import { Search, RotateCcw, SlidersHorizontal, Tag, ShieldCheck } from "lucide-r
 const AccessoriesPage = async ({ searchParams }) => {
   const resolvedSearchParams = await searchParams;
 
-  // URL Params হ্যান্ডলিং
   const selectedBrand = resolvedSearchParams?.brand || "ALL";
   const searchQuery = resolvedSearchParams?.search || "";
 
-  // API ফেচিং (Server Component direct async fetch)
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/all-accessories`,
     {
@@ -24,7 +22,6 @@ const AccessoriesPage = async ({ searchParams }) => {
   const data = await res.json();
   const rawAccessories = data?.data || [];
 
-  // ১. ডাইনামিক ব্র্যান্ড তালিকা ও প্রোডাক্ট কাউন্ট বের করা
   const brandCounts = rawAccessories.reduce((acc, item) => {
     if (item.brand) {
       acc[item.brand] = (acc[item.brand] || 0) + 1;
@@ -35,17 +32,13 @@ const AccessoriesPage = async ({ searchParams }) => {
   const allBrands = Object.keys(brandCounts);
   const finalBrands = ["ALL", ...allBrands];
 
-  // ২. ফিল্টারিং ও সার্চ লজিক
   let filteredAccessories = [...rawAccessories];
-
-  // ব্র্যান্ড ফিল্টার
   if (selectedBrand !== "ALL") {
     filteredAccessories = filteredAccessories.filter(
       (item) => item.brand?.toLowerCase() === selectedBrand.toLowerCase()
     );
   }
 
-  // সার্চ ফিল্টার (রেসপন্সিভ সার্চবার সাপোর্টেড)
   if (searchQuery.trim() !== "") {
     filteredAccessories = filteredAccessories.filter((item) =>
       item.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||

@@ -61,7 +61,7 @@ const WishlistTable = ({ wishlist }) => {
                   const { _id, productId, title, price, image, createdAt } =
                     item;
 
-                  // Date formatting
+            
                   const formattedDate = createdAt
                     ? new Date(createdAt).toLocaleDateString("en-US", {
                         year: "numeric",

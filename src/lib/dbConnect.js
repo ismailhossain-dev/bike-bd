@@ -8,7 +8,7 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   },
 });
-// stripe data mongodb te save na hower karone async use kora holo
+
 
 export const dbConnect = (cname) => {
   return client.db(dbName).collection(cname);

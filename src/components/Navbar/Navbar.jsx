@@ -129,7 +129,7 @@ const Navbar = () => {
                 />
               </button>
 
-              {/* প্রফেশনাল ড্রপডাউন মেনু */}
+          
               {isDropdownOpen && (
                 <>
                   <div
@@ -187,7 +187,7 @@ const Navbar = () => {
             </Link>
           )}
 
-          {/* মোবাইল মেনু টগল বাটন */}
+      
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="xl:hidden text-white p-1 hover:text-red-500 transition-colors"
@@ -198,7 +198,7 @@ const Navbar = () => {
       </div>
       </Container>
 
-      {/* ------------------- ৩. মোবাইল নেভিগেশন সাইডবার ------------------- */}
+    
       <div
         className={`fixed inset-0 bg-black/70 backdrop-blur-sm z-[60] transition-opacity duration-300 xl:hidden ${
           isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
