@@ -1,6 +1,3 @@
-// import { dbConnect } from "@/lib/dbConnect";
-//mongose er jonno use
-
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";

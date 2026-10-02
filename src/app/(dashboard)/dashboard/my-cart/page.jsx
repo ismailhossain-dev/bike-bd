@@ -7,7 +7,7 @@ const myCartPage = async() => {
     // http://localhost:3000/api/cart?email=programmarsabbir@gmail.com
 
     const session =await getServerSession(authOptions)
-    console.log("cart user", session)
+    // console.log("cart user", session)
     let cartData = []
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/cart?email=${session?.user?.email}`,
