@@ -1,14 +1,12 @@
-import Banner from "@/components/Home/Banner/Banner";
-
-import { FeaturesSection } from "@/components/FeaturesSection";
+import FeaturesSection from "@/components/FeaturesSection";
 import Footer from "@/components/Footer/Footer";
-import Navbar from "@/components/Navbar/Navbar";
-import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
-import HomeBikesSection from "@/components/HomeBikesSection";
+import Banner from "@/components/Home/Banner/Banner";
 import HelpsFindBike from "@/components/Home/HelpsFindBike/HelpsFindBike";
-import OurProducts from "@/components/Home/OurProducts/OurProducts";
 import HomeContactSection from "@/components/Home/HomeContactSection/HomeContactSection";
+import OurProducts from "@/components/Home/OurProducts/OurProducts";
+import HomeBikesSection from "@/components/HomeBikesSection";
+import Navbar from "@/components/Navbar/Navbar";
+
 
 
 const Page = async () => {

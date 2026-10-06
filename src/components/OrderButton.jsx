@@ -29,7 +29,7 @@ const OrderButton = ({ bike, userEmail }) => {
               quantity: 1 
             }
           ],
-          email: session.user?.email || "user.customer@example.com" // ডিফল্ট বা ইউজারের রিয়েল ইমেইল
+          email: session.user?.email || "user.customer@example.com" 
         })
       });
 

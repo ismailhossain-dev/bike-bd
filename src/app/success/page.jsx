@@ -1,14 +1,49 @@
-import Link from "next/link";
-import React from "react";
+"use client";
+
+import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function SuccessPage() {
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const verifyPayment = async () => {
+      const sessionId = searchParams.get("session_id");
+
+      if (!sessionId) {
+        console.log("Session ID not found");
+        return;
+      }
+
+      try {
+        const response = await fetch("/api/payment-success", {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify({
+            sessionId,
+          }),
+        });
+
+        const data = await response.json();
+
+        console.log("Payment Response:", data);
+      } catch (error) {
+        console.error("Payment verification error:", error);
+      }
+    };
+
+    verifyPayment();
+  }, [searchParams]);
+
   return (
-    <div className="min-h-screen bg-[#0b0c10] text-white flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-black text-green-500 mb-4">Payment Successful! 🎉</h1>
-      <p className="text-gray-400 mb-6">Thank you for your purchase. Your order is confirmed.</p>
-      <Link href="/all-bikes" className="px-6 py-3 bg-red-600 rounded-xl text-xs font-bold uppercase">
-        Back to Shop
-      </Link>
+    <div>
+      <h1>Payment Successful 🎉</h1>
+
+      <p>Thank you for your payment.</p>
     </div>
   );
 }
