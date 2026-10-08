@@ -52,7 +52,7 @@ export async function GET(req) {
     return NextResponse.json(
       {
         result,
-        message: "cart get successfully",
+        message: "Cart retrived successfully",
       },
       { status: 200 },
     );
@@ -60,7 +60,7 @@ export async function GET(req) {
     console.log(error);
     return NextResponse.json(
       {
-        message: "cart get successfully",
+        message: "Cart retrived failed...",
         error: error.message,
       },
       { status: 500 },

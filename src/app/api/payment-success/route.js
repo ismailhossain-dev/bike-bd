@@ -79,3 +79,35 @@ export async function POST(req) {
     );
   }
 }
+
+//orders retrived
+
+export async function GET(req) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const email = searchParams.get("email");
+
+    const result = await dbConnect("orders").find({ email }).toArray();
+
+    return NextResponse.json(
+      {
+        message: "Orders retrived successfully",
+        data: result,
+      },
+      {
+        status: 200,
+      },
+    );
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(
+      {
+        message: "Orders retrived failed..",
+        error: error.message,
+      },
+      {
+        status: 500,
+      },
+    );
+  }
+}

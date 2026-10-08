@@ -4,6 +4,7 @@ import "./globals.css";
 // import Footer from "@/components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import NextAuthProvider from "@/Provider/NextAuthProvider";
+import QueryProvider from "@/Provider/QueryProvider";
 
 
 
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
      
     <html lang="en">
       <body className={`${inter.className} $ antialiased`}>
+        <QueryProvider>
         <NextAuthProvider>
           {/* <Navbar /> */}
 
@@ -60,6 +62,7 @@ export default function RootLayout({ children }) {
 
           {/* <Footer /> */}
           </NextAuthProvider>
+          </QueryProvider>
 
       </body>
     </html>
