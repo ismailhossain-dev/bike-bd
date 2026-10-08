@@ -25,7 +25,7 @@ export async function POST(req) {
 
     const session = await stripe.checkout.sessions.retrieve(sessionId);
 
-    console.log("Stripe sessionId", session);
+    // console.log("payment session", session)
 
     if (session.payment_status !== "paid") {
       return NextResponse.json(
@@ -45,10 +45,10 @@ export async function POST(req) {
     };
     const result = await dbConnect("orders").insertOne(ordersData);
 
-    console.log("Payment successful!");
-    console.log("Customer:", session.customer_email);
-    console.log("Session ID:", session.id);
-    console.log("Amount:", session.amount_total / 100);
+    // console.log("Payment successful!");
+    // console.log("Customer:", session.customer_email);
+    // console.log("Session ID:", session.id);
+    // console.log("Amount:", session.amount_total / 100);
 
     return NextResponse.json({
       success: true,

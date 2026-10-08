@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Banner = () => {
   const bannerData = {
-    // আপনার পছন্দ অনুযায়ী ভিডিও লিংক পরিবর্তন করতে পারেন
+
     videoUrl: "/videos/bike-bd-video.mp4",
     tagline: "WELCOME TO AUTOBIKE",
     title: "GREAT PERFORMANCE THAT MATTERS IN FUTURE",
@@ -18,7 +18,7 @@ const Banner = () => {
   return (
     <div className="w-full relative h-[550px] sm:h-[650px] lg:h-[750px] bg-[#050505] overflow-hidden font-sans select-none">
       
-      {/* ১. ব্যাকগ্রাউন্ড ভিডিও */}
+  
       <video
         autoPlay
         loop
@@ -33,26 +33,22 @@ const Banner = () => {
       <div className="absolute inset-0 bg-black/40" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
 
-      {/* ৩. টেক্সট কন্টেন্ট (ছবি অনুযায়ী বাম-ঘেঁষা লেআউট) */}
-      <div className="absolute inset-0 flex items-center justify-start  mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full max-w-[1420px] mx-auto">
+      <div className="absolute inset-0 flex items-center justify-start  mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full max-w-[1420px] ">
         <div className="max-w-2xl space-y-4 sm:space-y-6 text-left">
           
-          {/* লাল রঙের ছোট ট্যাগলাইন */}
           <p className="text-red-600 font-extrabold text-xs sm:text-sm tracking-widest uppercase">
             {bannerData.tagline}
           </p>
 
-          {/* মেইন টাইটেল (বোল্ড ও সবক্যাপস) */}
           <h1 className="text-2xl sm:text-5xl md:text-5xl font-black tracking-tight leading-[1.05] uppercase text-white drop-shadow-md">
             {bannerData.title}
           </h1>
 
-          {/* ডেসক্রিপশন */}
           <p className="text-gray-200 text-xs sm:text-sm md:text-base font-normal  leading-relaxed drop-shadow-sm">
             {bannerData.description}
           </p>
 
-          {/* লাল ব্যাকগ্রাউন্ড বাটন */}
+      
           <div className="pt-2 sm:pt-4">
             <Link
               href={bannerData.buttonLink}

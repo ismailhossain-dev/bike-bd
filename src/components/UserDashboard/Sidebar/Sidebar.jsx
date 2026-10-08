@@ -3,16 +3,14 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { 
-  LayoutDashboard, 
-  Bike, 
-  PlusCircle, 
-  User, 
-  Settings, 
-  LogOut, 
+import {
+  LayoutDashboard,
+  Bike,
+  PlusCircle,
+  User,
+  LogOut,
   X,
   ChevronRight,
-  Home
 } from "lucide-react";
 import Logo from "@/components/Logo/Logo";
 
@@ -22,7 +20,6 @@ const menuItems = [
   { name: "My Cart", path: "/dashboard/my-cart", icon: PlusCircle },
   { name: "My Order", path: "/dashboard/my-order", icon: PlusCircle },
   { name: "My Profile", path: "/dashboard/my-profile", icon: User },
-
 ];
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
@@ -86,13 +83,19 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                   <div className="flex items-center gap-3">
                     <Icon
                       size={18}
-                      className={isActive ? "text-red-500" : "text-gray-400 group-hover:text-white transition-colors"}
+                      className={
+                        isActive
+                          ? "text-red-500"
+                          : "text-gray-400 group-hover:text-white transition-colors"
+                      }
                       strokeWidth={isActive ? 2.5 : 2}
                     />
                     <span>{item.name}</span>
                   </div>
 
-                  {isActive && <ChevronRight size={14} className="text-red-500" />}
+                  {isActive && (
+                    <ChevronRight size={14} className="text-red-500" />
+                  )}
                 </Link>
               );
             })}
@@ -101,19 +104,13 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
         {/* Bottom Actions */}
         <div className="p-4 border-t border-white/5 space-y-2">
-          {/* Back to Public Site Link */}
-          <Link
-            href="/"
-            className="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-300"
-          >
-            <Home size={18} />
-            <span>Public Site</span>
-          </Link>
-
           {/* Logout Button */}
           <button className="group flex items-center gap-3 px-4 py-3 w-full text-xs font-bold uppercase tracking-wider text-gray-400 hover:bg-red-600/10 hover:text-red-500 rounded-xl transition-all duration-300 border border-transparent hover:border-red-500/20 cursor-pointer">
             <div className="p-1.5 rounded-lg bg-white/5 group-hover:bg-red-600/20 transition-colors">
-              <LogOut size={16} className="text-gray-400 group-hover:text-red-500" />
+              <LogOut
+                size={16}
+                className="text-gray-400 group-hover:text-red-500"
+              />
             </div>
             <span>Logout</span>
           </button>

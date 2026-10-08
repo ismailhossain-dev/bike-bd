@@ -3,7 +3,8 @@ import { useSession } from "next-auth/react";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-const OrderButton = ({ bike, userEmail }) => {
+const OrderButton = ({ bike }) => {
+  console.log("bike information", bike)
   const [loading, setLoading] = useState(false);
   const { data: session, status } = useSession();
   
@@ -25,7 +26,7 @@ const OrderButton = ({ bike, userEmail }) => {
           items: [
             { 
               name: bike?.name || "City Hunter Backpack", 
-              price: 64.80, 
+              price: 500, 
               quantity: 1 
             }
           ],
