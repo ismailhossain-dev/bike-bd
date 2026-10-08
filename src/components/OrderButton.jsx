@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 const OrderButton = ({ bike }) => {
-  console.log("bike information", bike);
+  //console.log("bike information", bike);
   const [loading, setLoading] = useState(false);
   const { data: session, status } = useSession();
 

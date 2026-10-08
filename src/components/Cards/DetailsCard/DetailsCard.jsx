@@ -5,7 +5,6 @@ import { Star, CheckCircle2, Shield, Zap, Sparkles, ShoppingCart } from 'lucide-
 import OrderButton from '@/components/OrderButton';
 
 function DetailsCard({ bike }) {
-    console.log("hello", bike)
   if (!bike) return null;
 
   const { details, features, price, image, rating, reviewCount, brand, category, name } = bike;
@@ -106,7 +105,7 @@ function DetailsCard({ bike }) {
             )}
 
             {/* Order Button */}
-           <OrderButton/>
+           <OrderButton bike={bike}/>
           </div>
 
           {/* Extra Guarantee/Badge Footer inside card */}
