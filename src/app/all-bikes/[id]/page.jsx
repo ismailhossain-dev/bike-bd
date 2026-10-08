@@ -147,7 +147,7 @@ const BikeDetailsPage = async ({ params }) => {
               </div>
 
               <div className="mt-8 pt-2">
-                <OrderButton />
+                <OrderButton bike={bike} />
               </div>
             </div>
 

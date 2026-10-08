@@ -4,19 +4,19 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 const OrderButton = ({ bike }) => {
-  console.log("bike information", bike)
+  console.log("bike information", bike);
   const [loading, setLoading] = useState(false);
   const { data: session, status } = useSession();
-  
-    if (status === "loading") {
+
+  if (status === "loading") {
     return <p>Loading....</p>;
   }
 
   const handlePayment = async () => {
     setLoading(true);
-    if(!session){
-      setLoading(false)
-      return toast.warn("Plase login first")
+    if (!session) {
+      setLoading(false);
+      return toast.warn("Plase login first");
     }
     try {
       const res = await fetch("/api/create-checkout-session", {
@@ -24,20 +24,21 @@ const OrderButton = ({ bike }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           items: [
-            { 
-              name: bike?.name || "City Hunter Backpack", 
-              price: 500, 
-              quantity: 1 
-            }
+            {
+              image: bike?.image,
+              name: bike?.name || "City Hunter Backpack",
+              price: bike?.price,
+              quantity: 1,
+            },
           ],
-          email: session.user?.email || "user.customer@example.com" 
-        })
+          email: session.user?.email || "user.customer@example.com",
+        }),
       });
 
       const data = await res.json();
 
       if (data.url) {
-        window.location.href = data.url; 
+        window.location.href = data.url;
       } else {
         toast.error(data.error || "Something went wrong!");
         setLoading(false);

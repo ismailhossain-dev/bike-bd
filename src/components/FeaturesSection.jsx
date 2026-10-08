@@ -10,28 +10,24 @@ export const FeaturesSection = () => {
       title: "GPS Tracking",
       desc: "Real-time bike tracking with pinpoint accuracy and smart anti-theft alerts.",
       icon: <MapPin className="w-6 h-6" />,
-      count: "01",
       tag: "Live Security",
     },
     {
       title: "Super Charging",
       desc: "Next-gen flash charging technology to power your ride in less than 20 minutes.",
       icon: <Zap className="w-6 h-6" />,
-      count: "02",
       tag: "Ultra Fast",
     },
     {
       title: "Increasing Speed",
       desc: "A custom fine-tuned powertrain engineered for raw and high-performance track agility.",
       icon: <Gauge className="w-6 h-6" />,
-      count: "03",
       tag: "High Power",
     },
     {
       title: "Powerful Tire",
       desc: "All-weather hyper-grip compound tires for maximum traction and high-speed stability.",
       icon: <Disc className="w-6 h-6" />,
-      count: "04",
       tag: "Maximum Grip",
     },
   ];
@@ -73,11 +69,6 @@ export const FeaturesSection = () => {
               >
                 {/* Top Highlight Edge Bar */}
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                {/* Background Numbering */}
-                <div className="absolute -top-2 -right-2 text-8xl font-black text-white/[0.03] select-none tracking-tighter group-hover:text-red-500/10 transition-colors duration-500 font-mono">
-                  {item.count}
-                </div>
 
                 <div>
                   {/* Header Badge & Icon */}

@@ -10,11 +10,6 @@ function DetailsCard({ bike }) {
 
   const { details, features, price, image, rating, reviewCount, brand, category, name } = bike;
 
-  // Placeholder function for handling order - replace with your actual logic
-  const handleOrder = () => {
-    console.log(`Ordering ${name || 'bike'}...`);
-    // Implement your checkout or cart addition logic here
-  };
 
   return (
     <div className="sm:px-6 lg:px-12 max-w-7xl mx-auto my-6 text-gray-100 ">

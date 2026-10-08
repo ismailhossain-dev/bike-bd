@@ -3,7 +3,7 @@ import "./globals.css";
 // import Navbar from "@/components/Navbar/Navbar";
 // import Footer from "@/components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
-import NextAuthProvider from "@/provider/NextAuthProvider";
+import NextAuthProvider from "@/Provider/NextAuthProvider";
 
 
 
@@ -42,10 +42,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-     <NextAuthProvider>
+     
     <html lang="en">
       <body className={`${inter.className} $ antialiased`}>
-        
+        <NextAuthProvider>
           {/* <Navbar /> */}
 
           <div className="min-h-[calc(100vh-472px)] bg-[#121212]">
@@ -59,10 +59,10 @@ export default function RootLayout({ children }) {
           </div>
 
           {/* <Footer /> */}
-          
+          </NextAuthProvider>
 
       </body>
     </html>
-         </NextAuthProvider>   
+        
   );
 }

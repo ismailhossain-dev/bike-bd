@@ -5,20 +5,17 @@ import Link from "next/link";
 
 const Banner = () => {
   const bannerData = {
-
     videoUrl: "/videos/bike-bd-video.mp4",
     tagline: "WELCOME TO AUTOBIKE",
     title: "GREAT PERFORMANCE THAT MATTERS IN FUTURE",
     description:
       "Feel and enjoy the torque delivered by this boxer with every twist of your wrist. With Core Screen Sport, you now have this sportiness – in the truest sense of the word – at your fingertips.",
-    buttonText: "LEARN MORE",
+    buttonText: "View All Bikes",
     buttonLink: "/all-bikes",
   };
 
   return (
     <div className="w-full relative h-[550px] sm:h-[650px] lg:h-[750px] bg-[#050505] overflow-hidden font-sans select-none">
-      
-  
       <video
         autoPlay
         loop
@@ -29,13 +26,11 @@ const Banner = () => {
         <source src={bannerData.videoUrl} type="video/mp4" />
       </video>
 
-
       <div className="absolute inset-0 bg-black/40" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
 
       <div className="absolute inset-0 flex items-center justify-start  mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full max-w-[1420px] ">
         <div className="max-w-2xl space-y-4 sm:space-y-6 text-left">
-          
           <p className="text-red-600 font-extrabold text-xs sm:text-sm tracking-widest uppercase">
             {bannerData.tagline}
           </p>
@@ -48,7 +43,6 @@ const Banner = () => {
             {bannerData.description}
           </p>
 
-      
           <div className="pt-2 sm:pt-4">
             <Link
               href={bannerData.buttonLink}
@@ -57,10 +51,8 @@ const Banner = () => {
               {bannerData.buttonText}
             </Link>
           </div>
-
         </div>
       </div>
-
     </div>
   );
 };
