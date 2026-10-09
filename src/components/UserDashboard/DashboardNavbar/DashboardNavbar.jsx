@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import { Menu, Bell, User as UserIcon, ShieldCheck } from "lucide-react";
+import { Menu,  User as UserIcon, ShieldCheck } from "lucide-react";
 
 function DashboardNavbar({ setIsSidebarOpen }) {
   const { data: session } = useSession();
@@ -27,18 +27,11 @@ function DashboardNavbar({ setIsSidebarOpen }) {
         </div>
       </div>
 
-      {/* Right Section: Notifications & Dynamic User Profile */}
+      {/* Right Section: Dynamic User Profile */}
       <div className="flex items-center gap-4 sm:gap-6">
         
-        {/* Notification Bell */}
-        <button className="relative p-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors cursor-pointer">
-          <Bell size={20} />
-          {/* Red Pulse Notification Ping */}
-          <span className="absolute top-2 right-2 flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
-          </span>
-        </button>
+  
+        
 
         {/* User Profile Card */}
         <div className="flex items-center gap-3 pl-4 border-l border-white/10">
