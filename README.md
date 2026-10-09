@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏍️ BikeBD - Modern E-Commerce & Full-Stack Platform
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+  <p><strong>A high-end, full-stack e-commerce and admin dashboard platform built with Next.js, Tailwind CSS, and MongoDB.</strong></p>
 
+  <p>
+    <a href="https://bike-bd.vercel.app" target="_blank"><strong>🚀 Explore Live Demo</strong></a>
+  </p>
+
+</div>
+
+---
+
+## 📖 About The Project
+
+**BikeBD** is a feature-rich, full-stack modern web application tailored for high-end digital e-commerce and management. Built using the latest **Next.js (App Router)** framework, it delivers a lightning-fast user experience with an immersive dark-mode interface, glassmorphism design aesthetics, secure role-based authentication, and a robust admin control center.
+
+---
+
+## 🌐 Live URL
+- **Live Demo:** [https://bike-bd.vercel.app](https://bike-bd.vercel.app)
+
+---
+
+## 🎯 Project Purpose
+
+The primary objective of BikeBD is to bridge the gap between seamless online shopping and powerful backend administrative control. It provides users with a smooth shopping experience—from browsing products and managing carts to secure checkouts—while giving administrators deep analytical oversight, order tracking, and user management capabilities in real-time.
+
+---
+
+## ✨ Key Features
+
+### 👤 User Features
+- **Dashboard Overview:** Personal stats and account summary.
+- **My Wishlist:** Save and manage favorite items.
+- **My Cart:** Real-time cart management and modifications.
+- **My Order:** Track ongoing and past purchase statuses.
+- **My Profile:** Account details and preference management.
+
+### 🛡️ Admin Features
+- **Dashboard Control Center:** Real-time metrics including total revenue, active orders, users, and cart analytics powered by interactive charts (`Recharts`).
+- **Manage Users:** View registered users, roles, and account statuses.
+- **Manage Orders:** Oversee and update customer purchase fulfillments.
+- **Manage Wishlist:** Audit user-saved products globally.
+- **Manage Carts:** Monitor active shopping cart databases.
+- **Admin Profile:** Specialized administrative profile hub.
+
+### ⚡ Additional Highlights
+- **Authentication:** Secure credential-based and Google OAuth login via `NextAuth`.
+- **Responsive UI:** Fully optimized for mobile, tablet, and desktop views using `Tailwind CSS`.
+- **Smooth Animations:** High-end motion effects with `Framer Motion` and `Swiper.js` sliders.
+
+---
+
+## 📦 NPM Packages Used
+
+### 🎨 Frontend Dependencies
+- **`next`** - React Framework (App Router)
+- **`react` & `react-dom`** - Core UI libraries
+- **`tailwindcss` & `@tailwindcss/postcss`** - Utility-first styling & styling engine
+- **`daisyui`** - Tailwind component library
+- **`lucide-react` & `react-icons`** - Modern UI iconography
+- **`framer-motion`** - Smooth fluid animations
+- **`swiper`** - Responsive carousels & sliders
+- **`recharts`** - Interactive data visualization charts
+- **`react-toastify`** - Notification alerts
+
+### ⚙️ Backend & Utility Dependencies
+- **`mongodb`** - NoSQL Database driver
+- **`mongoose` / `axios`** - Data fetching & HTTP requests
+- **`next-auth`** - Secure session and authentication handling
+- **`bcryptjs`** - Password hashing security
+- **`stripe`** - Payment gateway integration
+- **`react-hook-form`** - Performant form handling
+- **`@tanstack/react-query`** - Powerful asynchronous state management
+
+---
+
+## 🚀 Getting Started & Installation
+
+To run this project locally on your machine, follow these steps:
+
+### 1. Clone the repository
 ```bash
+git clone [https://github.com/ismailhossain-dev/bike-bd.git](https://github.com/ismailhossain-dev/bike-bd.git)
+cd bike-bd
+2. Install dependencies
+Bash
+npm install
+3. Setup Environment Variables
+Create a .env file in the root directory of your project and configure it with your credentials:
+
+Code snippet
+MONGODB_URI=YOUR_MONGODB_URI
+MONGODB_NAME=YOUR_DATABASE_NAME
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+STRIPE_SECRET_KEY=YOUR_STRIPE_SECRET_KEY
+NEXTAUTH_SECRET=YOUR_NEXTAUTH_SECRET_HERE
+GOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET_HERE
+GOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID_HERE
+4. Run the Development Server
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 with your browser to see the result.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+👨‍💻 Built By
+Ismail Hossain
