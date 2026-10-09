@@ -84,7 +84,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         <div className="border-t border-white/5 p-4">
           <button
             onClick={() => signOut({ callbackUrl: "/login" })}
-            className="flex w-full items-center gap-3 rounded-xl p-3 text-gray-400 hover:bg-red-500/10 hover:text-red-500"
+            className="flex w-full items-center gap-3 rounded-xl p-3 border-red-500/20 bg-red-600/10 text-red-500  cursor-pointer"
           >
             <LogOut size={18} />
             Logout
