@@ -119,7 +119,7 @@ const AccessoriesCard = ({ bike }) => {
 
           {/* Price */}
           <p className="text-lg font-black text-red-500 tracking-tight">
-            {price || "$0.00"}
+            ${price || "$0.00"}
           </p>
         </div>
 

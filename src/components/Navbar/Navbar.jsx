@@ -25,7 +25,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathName = usePathname();
   const role = session?.user?.role;
-  console.log(role, "navbar role")
+  //console.log(role, "navbar role")
 
   const navLinks = [
     { name: "HOME PAGE", path: "/" },

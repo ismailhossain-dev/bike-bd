@@ -7,7 +7,7 @@ import { Trash2, Eye } from "lucide-react";
 import { toast } from "react-toastify";
 
 const CartTable = ({ cartData }) => {
-  console.log("cartData in table:", cartData);
+  //console.log("cartData in table:", cartData);
 
   // Delete handler
   const handleDelete = async (id) => {
@@ -123,7 +123,7 @@ const CartTable = ({ cartData }) => {
                         <div className="flex items-center justify-center gap-2">
                           {/* View Details Button */}
                           <Link
-                            href={`/bikes/${productId}`}
+                            href={`/all-bikes/${productId}`}
                             className="w-9 h-9 bg-white/5 hover:bg-white/10 text-white rounded-xl flex items-center justify-center border border-white/10 transition-all hover:scale-105"
                             title="View Details"
                           >
@@ -171,7 +171,7 @@ const CartTable = ({ cartData }) => {
               Your shopping cart is empty.
             </p>
             <Link
-              href="/bikes"
+              href="/all-bikes"
               className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold uppercase text-xs tracking-widest py-3 px-6 rounded-xl transition-all"
             >
               Explore Bikes

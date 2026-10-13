@@ -158,7 +158,7 @@ const OrderTable = ({ orderData }) => {
               No orders found yet.
             </p>
             <Link
-              href="/bikes"
+              href="/all-bikes"
               className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold uppercase text-xs tracking-widest py-3 px-6 rounded-xl transition-all"
             >
               Explore Bikes

@@ -51,13 +51,10 @@ export default function Sidebar({ isOpen, setIsOpen }) {
             {menuItems.map((item) => {
               const Icon = item.icon;
 
-              const isActive =
-                pathname === item.path ||
-                (item.path == "/dashboard" &&
-                  pathname.startsWith(`${item.path}/`));
+              const isActive = pathname === item.path;
 
               return (
-                <Link
+                <Links
                   key={item.path}
                   href={item.path}
                   onClick={() => setIsOpen(false)}
@@ -75,7 +72,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
                   </span>
 
                   {isActive && <ChevronRight size={16} />}
-                </Link>
+                </Links>
               );
             })}
           </nav>

@@ -3,7 +3,10 @@ import React from "react";
 
 const Cartspage = async () => {
   const result = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/cart`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/cart`,{
+      //cache used for deploy
+      cache: "no-store"
+    },
   );
   const data =await result.json();
   const cartData = data.data;
